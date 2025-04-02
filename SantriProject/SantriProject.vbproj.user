@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="Admin\DashboardAdmin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Admin\HistoryAdmin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Admin\KelasAdmin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Admin\LaporanAdmin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Admin\PerizinanAdmin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Admin\Petugas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Admin\TransaksiAdmin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Admin\UserManagementAdmin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Auth\Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Menu\MenuAdmin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Menu\MenuUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="User\DashboardUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="User\UserProfil.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
