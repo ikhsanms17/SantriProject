@@ -32,3 +32,6 @@ E:\Comission\SantriProject\SantriProject\obj\Debug\net8.0-windows\SantriProject.
 E:\Comission\SantriProject\SantriProject\obj\Debug\net8.0-windows\SantriProject.MenuUser.resources
 E:\Comission\SantriProject\SantriProject\obj\Debug\net8.0-windows\SantriProject.DashboardUser.resources
 E:\Comission\SantriProject\SantriProject\obj\Debug\net8.0-windows\SantriProject.UserProfil.resources
+E:\Comission\SantriProject\SantriProject\obj\Debug\net8.0-windows\SantriProject.sourcelink.json
+E:\Comission\SantriProject\SantriProject\obj\Debug\net8.0-windows\SantriProject.AddUser.resources
+E:\Comission\SantriProject\SantriProject\obj\Debug\net8.0-windows\SantriProject.UpdateUser.resources

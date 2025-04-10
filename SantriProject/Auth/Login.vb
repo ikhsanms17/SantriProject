@@ -40,17 +40,6 @@ Public Class Login
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        '' Simulasi Login (Bisa diganti dengan validasi database)
-        'If TxtUsername.Text = "admin" And TxtPassword.Text = "1234" Then
-        '    MessageBox.Show("Login Berhasil!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
-        '    ' Ganti ke Form Menu
-        '    Dim parentForm As Form1 = CType(Me.MdiParent, Form1)
-        '    parentForm.OpenChildForm(New MenuAdmin)
-        'Else
-        '    MessageBox.Show("Login Gagal!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        'End If
-
         If TxtUsername.Text = "admin" And TxtPassword.Text = "1234" Then
             MessageBox.Show("Login Berhasil!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
