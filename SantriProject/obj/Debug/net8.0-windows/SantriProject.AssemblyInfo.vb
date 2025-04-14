@@ -16,7 +16,7 @@ Imports System.Reflection
 <Assembly: System.Reflection.AssemblyCompanyAttribute("SantriProject"),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Debug"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a79e31b0919e161e78b0efeb8a71f11b1eb6af3d"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+364f95b23f87d83315ec358fb03c52cd6b82412b"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("SantriProject"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("SantriProject"),  _
  Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0"),  _

@@ -44,7 +44,21 @@ Public Class MenuAdmin
         parentForm.OpenChildForm(New HistoryAdmin)
     End Sub
 
-    Private Sub BtnPower_Click(sender As Object, e As EventArgs) Handles BtnPower.Click
-        Logout()
+    Private Sub BtnLogout_Click(sender As Object, e As EventArgs) Handles BtnPower.Click
+        ' Clear session data
+        Auth.IsLoggedIn = False
+        Auth.Username = ""
+        Auth.UserRole = ""
+        Auth.DisplayName = ""
+
+        ' Hide the main form and show the login form again
+        Me.Hide()
+
+        Dim loginForm As New Login()
+        loginForm.Show()
+
+        ' Optionally, you can also clear any existing MdiParent if necessary
+        loginForm.MdiParent = Nothing
     End Sub
+
 End Class
