@@ -32,10 +32,10 @@ Partial Class Login
         ' 
         Label1.AccessibleRole = AccessibleRole.None
         Label1.AutoSize = True
-        Label1.Font = New Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label1.Location = New Point(204, 38)
+        Label1.Font = New Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label1.Location = New Point(188, 38)
         Label1.Name = "Label1"
-        Label1.Size = New Size(393, 65)
+        Label1.Size = New Size(424, 65)
         Label1.TabIndex = 0
         Label1.Text = "APLIKASI SANTRI"
         ' 

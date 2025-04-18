@@ -24,19 +24,29 @@ Partial Class AddUser
     Private Sub InitializeComponent()
         TableLayoutPanel1 = New TableLayoutPanel()
         TableLayoutPanel2 = New TableLayoutPanel()
-        TextBox1 = New TextBox()
-        TextBox2 = New TextBox()
-        TextBox3 = New TextBox()
-        TextBox4 = New TextBox()
-        TextBox5 = New TextBox()
-        TextBox6 = New TextBox()
-        TextBox7 = New TextBox()
-        TextBox8 = New TextBox()
-        TextBox9 = New TextBox()
-        TextBox12 = New TextBox()
-        TextBox13 = New TextBox()
+        txt_nama = New TextBox()
+        txt_username = New TextBox()
+        txt_email = New TextBox()
+        txt_nis = New TextBox()
+        txt_nama_ayah = New TextBox()
+        txt_alamat = New TextBox()
+        txt_nama_ibu = New TextBox()
         BtnSimpan = New Button()
         BtnKembali = New Button()
+        cmb_kelas = New ComboBox()
+        cmb_jenis_kelamin = New ComboBox()
+        txt_tgl_lahir = New DateTimePicker()
+        Label1 = New Label()
+        Label2 = New Label()
+        Label3 = New Label()
+        Label4 = New Label()
+        Label5 = New Label()
+        Label6 = New Label()
+        Label7 = New Label()
+        Label8 = New Label()
+        Label9 = New Label()
+        Label10 = New Label()
+        Label15 = New Label()
         TableLayoutPanel1.SuspendLayout()
         TableLayoutPanel2.SuspendLayout()
         SuspendLayout()
@@ -47,6 +57,7 @@ Partial Class AddUser
         TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 3F))
         TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 94F))
         TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 3F))
+        TableLayoutPanel1.Controls.Add(Label15, 1, 1)
         TableLayoutPanel1.Controls.Add(TableLayoutPanel2, 1, 2)
         TableLayoutPanel1.Dock = DockStyle.Fill
         TableLayoutPanel1.Location = New Point(0, 0)
@@ -57,26 +68,35 @@ Partial Class AddUser
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 85F))
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 3F))
         TableLayoutPanel1.Size = New Size(800, 450)
-        TableLayoutPanel1.TabIndex = 0
+        TableLayoutPanel1.TabIndex = 2
         ' 
         ' TableLayoutPanel2
         ' 
         TableLayoutPanel2.ColumnCount = 2
         TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
         TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
-        TableLayoutPanel2.Controls.Add(TextBox1, 0, 0)
-        TableLayoutPanel2.Controls.Add(TextBox2, 1, 0)
-        TableLayoutPanel2.Controls.Add(TextBox3, 0, 2)
-        TableLayoutPanel2.Controls.Add(TextBox4, 1, 2)
-        TableLayoutPanel2.Controls.Add(TextBox5, 0, 4)
-        TableLayoutPanel2.Controls.Add(TextBox6, 1, 4)
-        TableLayoutPanel2.Controls.Add(TextBox7, 0, 6)
-        TableLayoutPanel2.Controls.Add(TextBox8, 0, 8)
-        TableLayoutPanel2.Controls.Add(TextBox9, 0, 10)
-        TableLayoutPanel2.Controls.Add(TextBox12, 1, 6)
-        TableLayoutPanel2.Controls.Add(TextBox13, 1, 8)
+        TableLayoutPanel2.Controls.Add(Label10, 1, 8)
+        TableLayoutPanel2.Controls.Add(Label9, 0, 8)
+        TableLayoutPanel2.Controls.Add(Label8, 1, 6)
+        TableLayoutPanel2.Controls.Add(Label7, 0, 6)
+        TableLayoutPanel2.Controls.Add(Label6, 1, 4)
+        TableLayoutPanel2.Controls.Add(Label5, 0, 4)
+        TableLayoutPanel2.Controls.Add(Label4, 1, 2)
+        TableLayoutPanel2.Controls.Add(Label3, 0, 2)
+        TableLayoutPanel2.Controls.Add(Label2, 1, 0)
         TableLayoutPanel2.Controls.Add(BtnSimpan, 1, 11)
         TableLayoutPanel2.Controls.Add(BtnKembali, 0, 11)
+        TableLayoutPanel2.Controls.Add(cmb_jenis_kelamin, 0, 5)
+        TableLayoutPanel2.Controls.Add(cmb_kelas, 1, 5)
+        TableLayoutPanel2.Controls.Add(txt_nama, 0, 1)
+        TableLayoutPanel2.Controls.Add(txt_username, 1, 1)
+        TableLayoutPanel2.Controls.Add(txt_email, 0, 3)
+        TableLayoutPanel2.Controls.Add(txt_nis, 1, 3)
+        TableLayoutPanel2.Controls.Add(txt_nama_ayah, 1, 7)
+        TableLayoutPanel2.Controls.Add(txt_tgl_lahir, 0, 7)
+        TableLayoutPanel2.Controls.Add(txt_nama_ibu, 1, 9)
+        TableLayoutPanel2.Controls.Add(txt_alamat, 0, 9)
+        TableLayoutPanel2.Controls.Add(Label1, 0, 0)
         TableLayoutPanel2.Dock = DockStyle.Fill
         TableLayoutPanel2.Location = New Point(27, 56)
         TableLayoutPanel2.Name = "TableLayoutPanel2"
@@ -96,93 +116,61 @@ Partial Class AddUser
         TableLayoutPanel2.Size = New Size(746, 376)
         TableLayoutPanel2.TabIndex = 0
         ' 
-        ' TextBox1
+        ' txt_nama
         ' 
-        TextBox1.Location = New Point(3, 3)
-        TextBox1.Name = "TextBox1"
-        TextBox1.PlaceholderText = "Nama Lengkap"
-        TextBox1.Size = New Size(100, 23)
-        TextBox1.TabIndex = 0
+        txt_nama.Location = New Point(3, 34)
+        txt_nama.Name = "txt_nama"
+        txt_nama.PlaceholderText = "Nama Lengkap"
+        txt_nama.Size = New Size(200, 23)
+        txt_nama.TabIndex = 0
         ' 
-        ' TextBox2
+        ' txt_username
         ' 
-        TextBox2.Location = New Point(376, 3)
-        TextBox2.Name = "TextBox2"
-        TextBox2.PlaceholderText = "Username"
-        TextBox2.Size = New Size(100, 23)
-        TextBox2.TabIndex = 1
+        txt_username.Location = New Point(376, 34)
+        txt_username.Name = "txt_username"
+        txt_username.PlaceholderText = "Username"
+        txt_username.Size = New Size(200, 23)
+        txt_username.TabIndex = 1
         ' 
-        ' TextBox3
+        ' txt_email
         ' 
-        TextBox3.Location = New Point(3, 65)
-        TextBox3.Name = "TextBox3"
-        TextBox3.PlaceholderText = "Email"
-        TextBox3.Size = New Size(100, 23)
-        TextBox3.TabIndex = 2
+        txt_email.Location = New Point(3, 96)
+        txt_email.Name = "txt_email"
+        txt_email.PlaceholderText = "Email"
+        txt_email.Size = New Size(200, 23)
+        txt_email.TabIndex = 2
         ' 
-        ' TextBox4
+        ' txt_nis
         ' 
-        TextBox4.Location = New Point(376, 65)
-        TextBox4.Name = "TextBox4"
-        TextBox4.PlaceholderText = "Password"
-        TextBox4.Size = New Size(100, 23)
-        TextBox4.TabIndex = 3
+        txt_nis.Location = New Point(376, 96)
+        txt_nis.Name = "txt_nis"
+        txt_nis.PlaceholderText = "NIS"
+        txt_nis.Size = New Size(200, 23)
+        txt_nis.TabIndex = 4
         ' 
-        ' TextBox5
+        ' txt_nama_ayah
         ' 
-        TextBox5.Location = New Point(3, 127)
-        TextBox5.Name = "TextBox5"
-        TextBox5.PlaceholderText = "NIS"
-        TextBox5.Size = New Size(100, 23)
-        TextBox5.TabIndex = 4
+        txt_nama_ayah.Location = New Point(376, 220)
+        txt_nama_ayah.Name = "txt_nama_ayah"
+        txt_nama_ayah.PlaceholderText = "Ayah"
+        txt_nama_ayah.Size = New Size(200, 23)
+        txt_nama_ayah.TabIndex = 7
         ' 
-        ' TextBox6
+        ' txt_alamat
         ' 
-        TextBox6.Location = New Point(376, 127)
-        TextBox6.Name = "TextBox6"
-        TextBox6.PlaceholderText = "Kelas"
-        TextBox6.Size = New Size(100, 23)
-        TextBox6.TabIndex = 5
+        txt_alamat.Location = New Point(3, 282)
+        txt_alamat.Name = "txt_alamat"
+        txt_alamat.PlaceholderText = "Alamat"
+        txt_alamat.Size = New Size(200, 23)
+        txt_alamat.TabIndex = 8
         ' 
-        ' TextBox7
+        ' txt_nama_ibu
         ' 
-        TextBox7.Location = New Point(3, 189)
-        TextBox7.Name = "TextBox7"
-        TextBox7.PlaceholderText = "Jenis Kelamin"
-        TextBox7.Size = New Size(100, 23)
-        TextBox7.TabIndex = 6
-        ' 
-        ' TextBox8
-        ' 
-        TextBox8.Location = New Point(3, 251)
-        TextBox8.Name = "TextBox8"
-        TextBox8.PlaceholderText = "Ayah"
-        TextBox8.Size = New Size(100, 23)
-        TextBox8.TabIndex = 7
-        ' 
-        ' TextBox9
-        ' 
-        TextBox9.Location = New Point(3, 313)
-        TextBox9.Name = "TextBox9"
-        TextBox9.PlaceholderText = "Alamat"
-        TextBox9.Size = New Size(100, 23)
-        TextBox9.TabIndex = 8
-        ' 
-        ' TextBox12
-        ' 
-        TextBox12.Location = New Point(376, 189)
-        TextBox12.Name = "TextBox12"
-        TextBox12.PlaceholderText = "Tanggal Lahir"
-        TextBox12.Size = New Size(100, 23)
-        TextBox12.TabIndex = 11
-        ' 
-        ' TextBox13
-        ' 
-        TextBox13.Location = New Point(376, 251)
-        TextBox13.Name = "TextBox13"
-        TextBox13.PlaceholderText = "Ibu"
-        TextBox13.Size = New Size(100, 23)
-        TextBox13.TabIndex = 12
+        txt_nama_ibu.Location = New Point(376, 282)
+        txt_nama_ibu.Name = "txt_nama_ibu"
+        txt_nama_ibu.PlaceholderText = "Ibu"
+        txt_nama_ibu.Size = New Size(200, 23)
+        txt_nama_ibu.TabIndex = 12
         ' 
         ' BtnSimpan
         ' 
@@ -202,6 +190,151 @@ Partial Class AddUser
         BtnKembali.Text = "Kembali"
         BtnKembali.UseVisualStyleBackColor = True
         ' 
+        ' cmb_kelas
+        ' 
+        cmb_kelas.FormattingEnabled = True
+        cmb_kelas.Location = New Point(376, 158)
+        cmb_kelas.Name = "cmb_kelas"
+        cmb_kelas.Size = New Size(200, 23)
+        cmb_kelas.TabIndex = 17
+        ' 
+        ' cmb_jenis_kelamin
+        ' 
+        cmb_jenis_kelamin.FormattingEnabled = True
+        cmb_jenis_kelamin.Location = New Point(3, 158)
+        cmb_jenis_kelamin.Name = "cmb_jenis_kelamin"
+        cmb_jenis_kelamin.Size = New Size(200, 23)
+        cmb_jenis_kelamin.TabIndex = 18
+        ' 
+        ' txt_tgl_lahir
+        ' 
+        txt_tgl_lahir.Location = New Point(3, 220)
+        txt_tgl_lahir.Name = "txt_tgl_lahir"
+        txt_tgl_lahir.Size = New Size(200, 23)
+        txt_tgl_lahir.TabIndex = 19
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Dock = DockStyle.Bottom
+        Label1.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        Label1.Location = New Point(3, 16)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(367, 15)
+        Label1.TabIndex = 20
+        Label1.Text = "Nama Lengkap"
+        ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.Dock = DockStyle.Bottom
+        Label2.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        Label2.Location = New Point(376, 16)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(367, 15)
+        Label2.TabIndex = 21
+        Label2.Text = "Nama Pengguna"
+        ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.Dock = DockStyle.Bottom
+        Label3.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        Label3.Location = New Point(3, 78)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(367, 15)
+        Label3.TabIndex = 22
+        Label3.Text = "Email Pengguna"
+        ' 
+        ' Label4
+        ' 
+        Label4.AutoSize = True
+        Label4.Dock = DockStyle.Bottom
+        Label4.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        Label4.Location = New Point(376, 78)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(367, 15)
+        Label4.TabIndex = 23
+        Label4.Text = "Nomor Induk Siswa"
+        ' 
+        ' Label5
+        ' 
+        Label5.AutoSize = True
+        Label5.Dock = DockStyle.Bottom
+        Label5.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        Label5.Location = New Point(3, 140)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(367, 15)
+        Label5.TabIndex = 24
+        Label5.Text = "Jenis Kelamin"
+        ' 
+        ' Label6
+        ' 
+        Label6.AutoSize = True
+        Label6.Dock = DockStyle.Bottom
+        Label6.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        Label6.Location = New Point(376, 140)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(367, 15)
+        Label6.TabIndex = 25
+        Label6.Text = "Kelas"
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.Dock = DockStyle.Bottom
+        Label7.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        Label7.Location = New Point(3, 202)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(367, 15)
+        Label7.TabIndex = 26
+        Label7.Text = "Tanggal Lahir"
+        ' 
+        ' Label8
+        ' 
+        Label8.AutoSize = True
+        Label8.Dock = DockStyle.Bottom
+        Label8.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        Label8.Location = New Point(376, 202)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(367, 15)
+        Label8.TabIndex = 27
+        Label8.Text = "Nama Ayah"
+        ' 
+        ' Label9
+        ' 
+        Label9.AutoSize = True
+        Label9.Dock = DockStyle.Bottom
+        Label9.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        Label9.Location = New Point(3, 264)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(367, 15)
+        Label9.TabIndex = 28
+        Label9.Text = "Alamat Rumah"
+        ' 
+        ' Label10
+        ' 
+        Label10.AutoSize = True
+        Label10.Dock = DockStyle.Bottom
+        Label10.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        Label10.Location = New Point(376, 264)
+        Label10.Name = "Label10"
+        Label10.Size = New Size(367, 15)
+        Label10.TabIndex = 29
+        Label10.Text = "Nama Ibu"
+        ' 
+        ' Label15
+        ' 
+        Label15.AutoSize = True
+        Label15.Dock = DockStyle.Fill
+        Label15.Font = New Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label15.Location = New Point(27, 13)
+        Label15.Name = "Label15"
+        Label15.Size = New Size(746, 40)
+        Label15.TabIndex = 6
+        Label15.Text = "TAMBAH PENGGUNA"
+        Label15.TextAlign = ContentAlignment.MiddleCenter
+        ' 
         ' AddUser
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -214,6 +347,7 @@ Partial Class AddUser
         Name = "AddUser"
         Text = "AddUser"
         TableLayoutPanel1.ResumeLayout(False)
+        TableLayoutPanel1.PerformLayout()
         TableLayoutPanel2.ResumeLayout(False)
         TableLayoutPanel2.PerformLayout()
         ResumeLayout(False)
@@ -221,17 +355,27 @@ Partial Class AddUser
 
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents TextBox5 As TextBox
-    Friend WithEvents TextBox6 As TextBox
-    Friend WithEvents TextBox7 As TextBox
-    Friend WithEvents TextBox8 As TextBox
-    Friend WithEvents TextBox9 As TextBox
-    Friend WithEvents TextBox12 As TextBox
-    Friend WithEvents TextBox13 As TextBox
+    Friend WithEvents txt_nama As TextBox
+    Friend WithEvents txt_username As TextBox
+    Friend WithEvents txt_email As TextBox
+    Friend WithEvents txt_nis As TextBox
+    Friend WithEvents txt_nama_ayah As TextBox
+    Friend WithEvents txt_alamat As TextBox
+    Friend WithEvents txt_nama_ibu As TextBox
     Friend WithEvents BtnSimpan As Button
     Friend WithEvents BtnKembali As Button
+    Friend WithEvents cmb_kelas As ComboBox
+    Friend WithEvents cmb_jenis_kelamin As ComboBox
+    Friend WithEvents txt_tgl_lahir As DateTimePicker
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label15 As Label
 End Class

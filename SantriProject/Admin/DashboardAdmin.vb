@@ -6,6 +6,15 @@ Imports SkiaSharp
 
 Public Class DashboardAdmin
     Private Sub DashboardAdmin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Set form agar bisa di-resize
+        Me.FormBorderStyle = FormBorderStyle.None
+        Me.WindowState = FormWindowState.Maximized
+
+        scaleX = Me.ClientSize.Width / baseWidth
+        scaleY = Me.ClientSize.Height / baseHeight
+
+        ResizeControls(Me, scaleX, scaleY)
+
         ' Data keuangan tahunan
         Dim tahunList As String() = {"2020", "2021", "2022", "2023", "2024", "2025"}
         Dim nilaiKeuangan As Double() = {200, 250, 300, 275, 320, 400}
@@ -51,5 +60,14 @@ Public Class DashboardAdmin
 
         PieChartSaldo.Series = pieSeries
         PieChartSaldo.LegendPosition = LiveChartsCore.Measure.LegendPosition.Right
+    End Sub
+
+    Private Sub ChartKeuangan_Load(sender As Object, e As EventArgs) Handles ChartKeuangan.Load
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtnKembali.Click
+        Dim parentForm As Form1 = CType(Me.MdiParent, Form1)
+        parentForm.OpenChildForm(New MenuAdmin)
     End Sub
 End Class

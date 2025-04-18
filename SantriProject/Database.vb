@@ -1,7 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class Database
-    Private Shared connectionString As String = "server=localhost;database=vb_santri;user=root;password="
+    Public Shared connectionString As String = "server=localhost;database=vb_santri;user=root;password="
 
     ' Mengambil koneksi ke database MySQL
     Public Shared Function GetConnection() As MySqlConnection

@@ -24,11 +24,6 @@ Partial Class UserManagementAdmin
     Private Sub InitializeComponent()
         TableLayoutPanel1 = New TableLayoutPanel()
         DGView1 = New DataGridView()
-        TableLayoutPanel2 = New TableLayoutPanel()
-        AddUserLabel = New Label()
-        UpdateUserLabel = New Label()
-        DeleteUserLabel = New Label()
-        Label4 = New Label()
         Column1 = New DataGridViewTextBoxColumn()
         Column3 = New DataGridViewTextBoxColumn()
         Column2 = New DataGridViewTextBoxColumn()
@@ -39,6 +34,12 @@ Partial Class UserManagementAdmin
         Column8 = New DataGridViewTextBoxColumn()
         Column9 = New DataGridViewTextBoxColumn()
         Column10 = New DataGridViewTextBoxColumn()
+        btnEdit = New DataGridViewButtonColumn()
+        btnHapus = New DataGridViewButtonColumn()
+        TableLayoutPanel2 = New TableLayoutPanel()
+        btnTambahUser = New Button()
+        TextBox1 = New TextBox()
+        Label1 = New Label()
         TableLayoutPanel1.SuspendLayout()
         CType(DGView1, ComponentModel.ISupportInitialize).BeginInit()
         TableLayoutPanel2.SuspendLayout()
@@ -68,74 +69,14 @@ Partial Class UserManagementAdmin
         DGView1.AllowUserToAddRows = False
         DGView1.AllowUserToDeleteRows = False
         DGView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DGView1.Columns.AddRange(New DataGridViewColumn() {Column1, Column3, Column2, Column4, Column5, Column6, Column7, Column8, Column9, Column10})
+        DGView1.Columns.AddRange(New DataGridViewColumn() {Column1, Column3, Column2, Column4, Column5, Column6, Column7, Column8, Column9, Column10, btnEdit, btnHapus})
         DGView1.Dock = DockStyle.Fill
         DGView1.Location = New Point(27, 70)
         DGView1.Name = "DGView1"
         DGView1.ReadOnly = True
+        DGView1.RowHeadersVisible = False
         DGView1.Size = New Size(746, 363)
         DGView1.TabIndex = 0
-        ' 
-        ' TableLayoutPanel2
-        ' 
-        TableLayoutPanel2.ColumnCount = 4
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25F))
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25F))
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25F))
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25F))
-        TableLayoutPanel2.Controls.Add(AddUserLabel, 0, 0)
-        TableLayoutPanel2.Controls.Add(UpdateUserLabel, 1, 0)
-        TableLayoutPanel2.Controls.Add(DeleteUserLabel, 2, 0)
-        TableLayoutPanel2.Controls.Add(Label4, 3, 0)
-        TableLayoutPanel2.Dock = DockStyle.Fill
-        TableLayoutPanel2.Location = New Point(27, 16)
-        TableLayoutPanel2.Name = "TableLayoutPanel2"
-        TableLayoutPanel2.RowCount = 1
-        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
-        TableLayoutPanel2.Size = New Size(746, 48)
-        TableLayoutPanel2.TabIndex = 1
-        ' 
-        ' AddUserLabel
-        ' 
-        AddUserLabel.AutoSize = True
-        AddUserLabel.Dock = DockStyle.Bottom
-        AddUserLabel.Location = New Point(3, 33)
-        AddUserLabel.Name = "AddUserLabel"
-        AddUserLabel.Size = New Size(180, 15)
-        AddUserLabel.TabIndex = 0
-        AddUserLabel.Text = "Tambah User"
-        AddUserLabel.TextAlign = ContentAlignment.MiddleCenter
-        ' 
-        ' UpdateUserLabel
-        ' 
-        UpdateUserLabel.AutoSize = True
-        UpdateUserLabel.Dock = DockStyle.Bottom
-        UpdateUserLabel.Location = New Point(189, 33)
-        UpdateUserLabel.Name = "UpdateUserLabel"
-        UpdateUserLabel.Size = New Size(180, 15)
-        UpdateUserLabel.TabIndex = 1
-        UpdateUserLabel.Text = "Edit User"
-        UpdateUserLabel.TextAlign = ContentAlignment.MiddleCenter
-        ' 
-        ' DeleteUserLabel
-        ' 
-        DeleteUserLabel.AutoSize = True
-        DeleteUserLabel.Dock = DockStyle.Bottom
-        DeleteUserLabel.Location = New Point(375, 33)
-        DeleteUserLabel.Name = "DeleteUserLabel"
-        DeleteUserLabel.Size = New Size(180, 15)
-        DeleteUserLabel.TabIndex = 2
-        DeleteUserLabel.Text = "Hapus User"
-        DeleteUserLabel.TextAlign = ContentAlignment.MiddleCenter
-        ' 
-        ' Label4
-        ' 
-        Label4.AutoSize = True
-        Label4.Location = New Point(561, 0)
-        Label4.Name = "Label4"
-        Label4.Size = New Size(41, 15)
-        Label4.TabIndex = 3
-        Label4.Text = "Label4"
         ' 
         ' Column1
         ' 
@@ -146,10 +87,11 @@ Partial Class UserManagementAdmin
         ' 
         ' Column3
         ' 
-        Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
         Column3.HeaderText = "Nama Pengguna"
         Column3.Name = "Column3"
         Column3.ReadOnly = True
+        Column3.Width = 111
         ' 
         ' Column2
         ' 
@@ -174,17 +116,19 @@ Partial Class UserManagementAdmin
         ' 
         ' Column6
         ' 
-        Column6.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Column6.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
         Column6.HeaderText = "Jenis Kelamin"
         Column6.Name = "Column6"
         Column6.ReadOnly = True
+        Column6.Width = 95
         ' 
         ' Column7
         ' 
-        Column7.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Column7.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
         Column7.HeaderText = "Tanggal Lahir"
         Column7.Name = "Column7"
         Column7.ReadOnly = True
+        Column7.Width = 95
         ' 
         ' Column8
         ' 
@@ -207,6 +151,74 @@ Partial Class UserManagementAdmin
         Column10.Name = "Column10"
         Column10.ReadOnly = True
         ' 
+        ' btnEdit
+        ' 
+        btnEdit.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        btnEdit.HeaderText = "Edit"
+        btnEdit.Name = "btnEdit"
+        btnEdit.ReadOnly = True
+        btnEdit.Text = ""
+        btnEdit.UseColumnTextForButtonValue = True
+        btnEdit.Width = 33
+        ' 
+        ' btnHapus
+        ' 
+        btnHapus.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        btnHapus.HeaderText = "Hapus"
+        btnHapus.Name = "btnHapus"
+        btnHapus.ReadOnly = True
+        btnHapus.Text = ""
+        btnHapus.UseColumnTextForButtonValue = True
+        btnHapus.Width = 47
+        ' 
+        ' TableLayoutPanel2
+        ' 
+        TableLayoutPanel2.ColumnCount = 3
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 10F))
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 60F))
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 30F))
+        TableLayoutPanel2.Controls.Add(btnTambahUser, 0, 0)
+        TableLayoutPanel2.Controls.Add(TextBox1, 2, 0)
+        TableLayoutPanel2.Controls.Add(Label1, 1, 0)
+        TableLayoutPanel2.Dock = DockStyle.Fill
+        TableLayoutPanel2.Location = New Point(27, 16)
+        TableLayoutPanel2.Name = "TableLayoutPanel2"
+        TableLayoutPanel2.RowCount = 1
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel2.Size = New Size(746, 48)
+        TableLayoutPanel2.TabIndex = 1
+        ' 
+        ' btnTambahUser
+        ' 
+        btnTambahUser.Dock = DockStyle.Bottom
+        btnTambahUser.Location = New Point(3, 22)
+        btnTambahUser.Name = "btnTambahUser"
+        btnTambahUser.Size = New Size(68, 23)
+        btnTambahUser.TabIndex = 4
+        btnTambahUser.Text = "Tambah"
+        btnTambahUser.UseVisualStyleBackColor = True
+        ' 
+        ' TextBox1
+        ' 
+        TextBox1.Dock = DockStyle.Bottom
+        TextBox1.Location = New Point(524, 22)
+        TextBox1.Name = "TextBox1"
+        TextBox1.PlaceholderText = "Cari Santri"
+        TextBox1.Size = New Size(219, 23)
+        TextBox1.TabIndex = 5
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Dock = DockStyle.Top
+        Label1.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label1.Location = New Point(77, 0)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(441, 15)
+        Label1.TabIndex = 6
+        Label1.Text = "USER MANAGEMENT"
+        Label1.TextAlign = ContentAlignment.TopCenter
+        ' 
         ' UserManagementAdmin
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -228,10 +240,9 @@ Partial Class UserManagementAdmin
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents DGView1 As DataGridView
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
-    Friend WithEvents AddUserLabel As Label
-    Friend WithEvents UpdateUserLabel As Label
-    Friend WithEvents DeleteUserLabel As Label
-    Friend WithEvents Label4 As Label
+    Friend WithEvents btnTambahUser As Button
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label1 As Label
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
@@ -242,4 +253,6 @@ Partial Class UserManagementAdmin
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
     Friend WithEvents Column9 As DataGridViewTextBoxColumn
     Friend WithEvents Column10 As DataGridViewTextBoxColumn
+    Friend WithEvents btnEdit As DataGridViewButtonColumn
+    Friend WithEvents btnHapus As DataGridViewButtonColumn
 End Class

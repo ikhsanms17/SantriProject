@@ -22,105 +22,139 @@ Partial Class DashboardAdmin
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
-        Me.ChartKeuangan = New LiveChartsCore.SkiaSharpView.WinForms.CartesianChart()
-        Me.PieChartSaldo = New LiveChartsCore.SkiaSharpView.WinForms.PieChart()
-        Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TableLayoutPanel1.SuspendLayout()
-        Me.TableLayoutPanel2.SuspendLayout()
-        Me.TableLayoutPanel3.SuspendLayout()
-        Me.TableLayoutPanel5.SuspendLayout()
-        Me.SuspendLayout()
-        '
+        TableLayoutPanel1 = New TableLayoutPanel()
+        TableLayoutPanel2 = New TableLayoutPanel()
+        TableLayoutPanel3 = New TableLayoutPanel()
+        ChartKeuangan = New LiveChartsCore.SkiaSharpView.WinForms.CartesianChart()
+        PieChartSaldo = New LiveChartsCore.SkiaSharpView.WinForms.PieChart()
+        Label1 = New Label()
+        BtnKembali = New Button()
+        TableLayoutPanel4 = New TableLayoutPanel()
+        TableLayoutPanel5 = New TableLayoutPanel()
+        TableLayoutPanel1.SuspendLayout()
+        TableLayoutPanel2.SuspendLayout()
+        TableLayoutPanel3.SuspendLayout()
+        SuspendLayout()
+        ' 
         ' TableLayoutPanel1
-        '
-        Me.TableLayoutPanel1.ColumnCount = 3
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 94.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 1, 1)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 3
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 96.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(800, 450)
-        Me.TableLayoutPanel1.TabIndex = 0
-        '
+        ' 
+        TableLayoutPanel1.ColumnCount = 3
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 3F))
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 94F))
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 3F))
+        TableLayoutPanel1.Controls.Add(TableLayoutPanel2, 1, 1)
+        TableLayoutPanel1.Dock = DockStyle.Fill
+        TableLayoutPanel1.Location = New Point(0, 0)
+        TableLayoutPanel1.Name = "TableLayoutPanel1"
+        TableLayoutPanel1.RowCount = 3
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 2F))
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 96F))
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 2F))
+        TableLayoutPanel1.Size = New Size(800, 450)
+        TableLayoutPanel1.TabIndex = 0
+        ' 
         ' TableLayoutPanel2
-        '
-        Me.TableLayoutPanel2.ColumnCount = 1
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel3, 0, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.Label1, 0, 0)
-        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(27, 9)
-        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
-        Me.TableLayoutPanel2.RowCount = 3
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(746, 426)
-        Me.TableLayoutPanel2.TabIndex = 0
-        '
+        ' 
+        TableLayoutPanel2.ColumnCount = 1
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
+        TableLayoutPanel2.Controls.Add(TableLayoutPanel3, 0, 1)
+        TableLayoutPanel2.Controls.Add(Label1, 0, 0)
+        TableLayoutPanel2.Controls.Add(BtnKembali, 0, 2)
+        TableLayoutPanel2.Dock = DockStyle.Fill
+        TableLayoutPanel2.Location = New Point(27, 12)
+        TableLayoutPanel2.Name = "TableLayoutPanel2"
+        TableLayoutPanel2.RowCount = 3
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 10F))
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 30F))
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 60F))
+        TableLayoutPanel2.Size = New Size(746, 426)
+        TableLayoutPanel2.TabIndex = 0
+        ' 
         ' TableLayoutPanel3
-        '
-        Me.TableLayoutPanel3.ColumnCount = 2
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel3.Controls.Add(Me.ChartKeuangan, 0, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.PieChartSaldo, 1, 0)
-        Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 45)
-        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
-        Me.TableLayoutPanel3.RowCount = 1
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(740, 246)
-        Me.TableLayoutPanel3.TabIndex = 0
-        '
+        ' 
+        TableLayoutPanel3.ColumnCount = 2
+        TableLayoutPanel3.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel3.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel3.Controls.Add(ChartKeuangan, 0, 0)
+        TableLayoutPanel3.Controls.Add(PieChartSaldo, 1, 0)
+        TableLayoutPanel3.Dock = DockStyle.Fill
+        TableLayoutPanel3.Location = New Point(3, 45)
+        TableLayoutPanel3.Name = "TableLayoutPanel3"
+        TableLayoutPanel3.RowCount = 2
+        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Absolute, 20F))
+        TableLayoutPanel3.Size = New Size(740, 121)
+        TableLayoutPanel3.TabIndex = 0
+        ' 
         ' ChartKeuangan
-        '
-        Me.ChartKeuangan.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ChartKeuangan.Location = New System.Drawing.Point(3, 3)
-        Me.ChartKeuangan.Name = "ChartKeuangan"
-        Me.ChartKeuangan.Size = New System.Drawing.Size(364, 240)
-        Me.ChartKeuangan.TabIndex = 0
-        '
+        ' 
+        ChartKeuangan.Dock = DockStyle.Fill
+        ChartKeuangan.Location = New Point(3, 3)
+        ChartKeuangan.Name = "ChartKeuangan"
+        ChartKeuangan.Size = New Size(364, 95)
+        ChartKeuangan.TabIndex = 0
+        ' 
         ' PieChartSaldo
-        '
-        Me.PieChartSaldo.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PieChartSaldo.Location = New System.Drawing.Point(373, 3)
-        Me.PieChartSaldo.Name = "PieChartSaldo"
-        Me.PieChartSaldo.Size = New System.Drawing.Size(364, 240)
-        Me.PieChartSaldo.TabIndex = 1
-        '
+        ' 
+        PieChartSaldo.Dock = DockStyle.Fill
+        PieChartSaldo.InitialRotation = 0R
+        PieChartSaldo.IsClockwise = True
+        PieChartSaldo.Location = New Point(373, 3)
+        PieChartSaldo.MaxAngle = 360R
+        PieChartSaldo.MaxValue = Nothing
+        PieChartSaldo.MinValue = 0R
+        PieChartSaldo.Name = "PieChartSaldo"
+        PieChartSaldo.Size = New Size(364, 95)
+        PieChartSaldo.TabIndex = 1
+        PieChartSaldo.Total = Nothing
+        ' 
         ' Label1
-        '
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label1.Text = "DASHBOARD ADMIN"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
+        ' 
+        Label1.Dock = DockStyle.Fill
+        Label1.Location = New Point(3, 0)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(740, 42)
+        Label1.TabIndex = 1
+        Label1.Text = "DASHBOARD ADMIN"
+        Label1.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' BtnKembali
+        ' 
+        BtnKembali.Location = New Point(3, 172)
+        BtnKembali.Name = "BtnKembali"
+        BtnKembali.Size = New Size(75, 23)
+        BtnKembali.TabIndex = 2
+        BtnKembali.Text = "Kembali"
+        BtnKembali.UseVisualStyleBackColor = True
+        ' 
+        ' TableLayoutPanel4
+        ' 
+        TableLayoutPanel4.Location = New Point(0, 0)
+        TableLayoutPanel4.Name = "TableLayoutPanel4"
+        TableLayoutPanel4.Size = New Size(200, 100)
+        TableLayoutPanel4.TabIndex = 0
+        ' 
+        ' TableLayoutPanel5
+        ' 
+        TableLayoutPanel5.Location = New Point(0, 0)
+        TableLayoutPanel5.Name = "TableLayoutPanel5"
+        TableLayoutPanel5.Size = New Size(200, 100)
+        TableLayoutPanel5.TabIndex = 0
+        ' 
         ' DashboardAdmin
-        '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.PapayaWhip
-        Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.TableLayoutPanel1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "DashboardAdmin"
-        Me.Text = "DashboardAdmin"
-        Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.TableLayoutPanel2.ResumeLayout(False)
-        Me.TableLayoutPanel3.ResumeLayout(False)
-        Me.TableLayoutPanel5.ResumeLayout(False)
-        Me.ResumeLayout(False)
+        ' 
+        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleMode = AutoScaleMode.Font
+        BackColor = Color.PapayaWhip
+        ClientSize = New Size(800, 450)
+        Controls.Add(TableLayoutPanel1)
+        FormBorderStyle = FormBorderStyle.None
+        Name = "DashboardAdmin"
+        Text = "DashboardAdmin"
+        TableLayoutPanel1.ResumeLayout(False)
+        TableLayoutPanel2.ResumeLayout(False)
+        TableLayoutPanel3.ResumeLayout(False)
+        ResumeLayout(False)
 
     End Sub
 
@@ -132,4 +166,5 @@ Partial Class DashboardAdmin
     Friend WithEvents Label1 As Label
     Friend WithEvents ChartKeuangan As LiveChartsCore.SkiaSharpView.WinForms.CartesianChart
     Friend WithEvents PieChartSaldo As LiveChartsCore.SkiaSharpView.WinForms.PieChart
+    Friend WithEvents BtnKembali As Button
 End Class

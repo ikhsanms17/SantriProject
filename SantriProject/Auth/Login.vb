@@ -3,10 +3,10 @@ Imports System.Security.Cryptography
 Imports System.Text
 
 Public Class Login
-    Private Const baseWidth As Integer = 800
-    Private Const baseHeight As Integer = 450
-    Private scaleX As Double
-    Private scaleY As Double
+    'Private Const baseWidth As Integer = 800
+    'Private Const baseHeight As Integer = 450
+    'Private scaleX As Double
+    'Private scaleY As Double
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Set form agar bisa di-resize
@@ -16,30 +16,30 @@ Public Class Login
         scaleX = Me.ClientSize.Width / baseWidth
         scaleY = Me.ClientSize.Height / baseHeight
 
-        ResizeControls(Me)
+        ResizeControls(Me, scaleX, scaleY)
     End Sub
 
-    Private Sub ResizeControls(ByVal container As Control)
-        For Each ctrl As Control In container.Controls
-            ' Resize posisi dan ukuran kontrol berdasarkan scale
-            ctrl.Left = CInt(ctrl.Left * scaleX)
-            ctrl.Top = CInt(ctrl.Top * scaleY)
-            ctrl.Width = CInt(ctrl.Width * scaleX)
-            ctrl.Height = CInt(ctrl.Height * scaleY)
+    'Private Sub ResizeControls(ByVal container As Control)
+    '    For Each ctrl As Control In container.Controls
+    '        ' Resize posisi dan ukuran kontrol berdasarkan scale
+    '        ctrl.Left = CInt(ctrl.Left * scaleX)
+    '        ctrl.Top = CInt(ctrl.Top * scaleY)
+    '        ctrl.Width = CInt(ctrl.Width * scaleX)
+    '        ctrl.Height = CInt(ctrl.Height * scaleY)
 
-            ' Menyesuaikan ukuran font kontrol tertentu
-            If TypeOf ctrl Is Label Or TypeOf ctrl Is Button Or TypeOf ctrl Is TextBox Then
-                Dim ctrlFont As Font = ctrl.Font
-                Dim newSize As Single = ctrlFont.Size * CSng(Math.Min(scaleX, scaleY))
-                ctrl.Font = New Font(ctrlFont.FontFamily, newSize, ctrlFont.Style)
-            End If
+    '        ' Menyesuaikan ukuran font kontrol tertentu
+    '        If TypeOf ctrl Is Label Or TypeOf ctrl Is Button Or TypeOf ctrl Is TextBox Then
+    '            Dim ctrlFont As Font = ctrl.Font
+    '            Dim newSize As Single = ctrlFont.Size * CSng(Math.Min(scaleX, scaleY))
+    '            ctrl.Font = New Font(ctrlFont.FontFamily, newSize, ctrlFont.Style)
+    '        End If
 
-            ' Periksa jika kontrol memiliki children dan lakukan resize rekursif
-            If ctrl.HasChildren Then
-                ResizeControls(ctrl)
-            End If
-        Next
-    End Sub
+    '        ' Periksa jika kontrol memiliki children dan lakukan resize rekursif
+    '        If ctrl.HasChildren Then
+    '            ResizeControls(ctrl)
+    '        End If
+    '    Next
+    'End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         ' Ambil input dari pengguna
@@ -90,8 +90,7 @@ Public Class Login
         JOIN user_role ON users.id = user_role.user_id 
         JOIN roles ON user_role.role_id = roles.id 
         WHERE (users.email = @input OR users.nama_pengguna = @input) 
-          AND users.kata_sandi = @password
-    "
+        AND users.kata_sandi = @password"
 
         Dim cmd As New MySqlCommand(query, conn)
         cmd.Parameters.AddWithValue("@input", input)
