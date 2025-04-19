@@ -93,4 +93,8 @@ Public Class UserManagementAdmin
         Dim parentForm As Form1 = CType(Me.MdiParent, Form1)
         parentForm.OpenChildForm(New AddUser)
     End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
+        SearchUser(txtSearch.Text.Trim(), DGView1)
+    End Sub
 End Class

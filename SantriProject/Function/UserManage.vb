@@ -6,76 +6,6 @@ Module UserManage
     Dim i As Integer
     Dim dr As MySqlDataReader
 
-    'Public Sub TambahUser(txt_nama As TextBox,
-    '    txt_username As TextBox,
-    '    txt_email As TextBox,
-    '    txt_nis As TextBox,
-    '    cmb_kelas As ComboBox,
-    '    cmb_jenis_kelamin As ComboBox,
-    '    txt_tgl_lahir As DateTimePicker,
-    '    txt_nama_ayah As TextBox,
-    '    txt_nama_ibu As TextBox,
-    '    txt_alamat As TextBox
-    ')
-    '    Try
-    '        conn.Open()
-    '        Dim cmd As New MySqlCommand("
-    '        INSERT INTO users (
-    '            nama, 
-    '            nama_pengguna, 
-    '            email, 
-    '            kata_sandi, 
-    '            nis, 
-    '            kelas_id, 
-    '            jenis_kelamin, 
-    '            tanggal_lahir, 
-    '            nama_ayah, 
-    '            nama_ibu, 
-    '            alamat, 
-    '            created_at, 
-    '            updated_at
-    '        ) VALUES (
-    '            @nama,
-    '            @username,
-    '            @email,
-    '            SHA2(@username, 256),
-    '            @nis,
-    '            @kelas_id,
-    '            @jenis_kelamin,
-    '            @tgl_lahir,
-    '            @nama_ayah,
-    '            @nama_ibu,
-    '            @alamat,
-    '            CURRENT_TIMESTAMP,
-    '            CURRENT_TIMESTAMP
-    '        );
-    '        ", conn)
-
-    '        '' Tambahkan parameter
-    '        cmd.Parameters.Clear()
-    '        cmd.Parameters.AddWithValue("@nama", txt_nama.Text.Trim())
-    '        cmd.Parameters.AddWithValue("@username", txt_username.Text.Trim())
-    '        cmd.Parameters.AddWithValue("@email", txt_email.Text.Trim())
-    '        'cmd.Parameters.AddWithValue("@password", txt_password.Text.Trim())
-    '        cmd.Parameters.AddWithValue("@nis", txt_nis.Text.Trim())
-    '        cmd.Parameters.AddWithValue("@kelas_id", cmb_kelas.Text.Trim())
-    '        cmd.Parameters.AddWithValue("@jenis_kelamin", cmb_jenis_kelamin.Text.Trim())
-    '        cmd.Parameters.AddWithValue("@tgl_lahir", Convert.ToDateTime(txt_tgl_lahir.Text))
-    '        cmd.Parameters.AddWithValue("@nama_ayah", txt_nama_ayah.Text.Trim())
-    '        cmd.Parameters.AddWithValue("@nama_ibu", txt_nama_ibu.Text.Trim())
-    '        cmd.Parameters.AddWithValue("@alamat", txt_alamat.Text.Trim())
-
-    '        ' Eksekusi
-    '        cmd.ExecuteNonQuery()
-    '        MessageBox.Show("Data pengguna berhasil ditambahkan.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
-    '    Catch ex As Exception
-    '        MsgBox(ex.Message)
-    '    Finally
-    '        Database.CloseConnection(conn)
-    '    End Try
-    'End Sub
-
     Public Sub TambahUser(txt_nama As TextBox,
         txt_username As TextBox,
         txt_email As TextBox,
@@ -335,26 +265,56 @@ Module UserManage
         End Try
     End Sub
 
-    Public Sub LoadKelas(cmb_kelas As ComboBox)
+
+
+    Public Sub SearchUser(keyword As String, dgv As DataGridView)
         Try
             If conn.State = ConnectionState.Closed Then
                 conn.Open()
             End If
 
-            Dim cmd As New MySqlCommand("SELECT id, nama FROM kelas ORDER BY nama ASC", conn)
-            Dim adapter As New MySqlDataAdapter(cmd)
-            Dim dt As New DataTable()
+            ' Jika keyword kosong, tampilkan semua user
+            If String.IsNullOrWhiteSpace(keyword) Then
+                ShowUser(dgv)
+                Return
+            End If
 
-            adapter.Fill(dt)
+            Dim query As String = "SELECT * FROM users WHERE deleted_at IS NULL AND (nama LIKE @keyword OR nama_pengguna LIKE @keyword)"
+            Dim cmd As New MySqlCommand(query, conn)
+            cmd.Parameters.AddWithValue("@keyword", "%" & keyword & "%")
 
-            cmb_kelas.DataSource = dt
-            cmb_kelas.DisplayMember = "nama_kelas"
-            cmb_kelas.ValueMember = "id"
+            Dim dr As MySqlDataReader = cmd.ExecuteReader()
+
+            ' Bersihkan baris sebelumnya
+            dgv.Rows.Clear()
+
+            ' Tambahkan baris hasil pencarian
+            While dr.Read
+                dgv.Rows.Add(
+                    dr.Item("nama"),
+                    dr.Item("nama_pengguna"),
+                    dr.Item("email"),
+                    dr.Item("nis"),
+                    dr.Item("kelas_id"),
+                    dr.Item("jenis_kelamin"),
+                    dr.Item("tanggal_lahir"),
+                    dr.Item("nama_ayah"),
+                    dr.Item("nama_ibu"),
+                    dr.Item("alamat"),
+                    Nothing, Nothing ' untuk tombol edit & hapus jika ada
+                )
+            End While
+
+            dr.Close()
 
         Catch ex As Exception
-            MsgBox("Gagal load data kelas: " & ex.Message)
+            MessageBox.Show("Terjadi kesalahan saat mencari user: " & ex.Message)
         Finally
             Database.CloseConnection(conn)
         End Try
     End Sub
+
+
+
+
 End Module

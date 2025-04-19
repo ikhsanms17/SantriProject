@@ -52,6 +52,7 @@ Partial Class Login
         TxtPassword.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         TxtPassword.Location = New Point(279, 231)
         TxtPassword.Name = "TxtPassword"
+        TxtPassword.PasswordChar = "*"c
         TxtPassword.Size = New Size(243, 29)
         TxtPassword.TabIndex = 2
         ' 

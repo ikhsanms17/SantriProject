@@ -38,7 +38,7 @@ Partial Class UserManagementAdmin
         btnHapus = New DataGridViewButtonColumn()
         TableLayoutPanel2 = New TableLayoutPanel()
         btnTambahUser = New Button()
-        TextBox1 = New TextBox()
+        txtSearch = New TextBox()
         Label1 = New Label()
         TableLayoutPanel1.SuspendLayout()
         CType(DGView1, ComponentModel.ISupportInitialize).BeginInit()
@@ -178,7 +178,7 @@ Partial Class UserManagementAdmin
         TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 60F))
         TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 30F))
         TableLayoutPanel2.Controls.Add(btnTambahUser, 0, 0)
-        TableLayoutPanel2.Controls.Add(TextBox1, 2, 0)
+        TableLayoutPanel2.Controls.Add(txtSearch, 2, 0)
         TableLayoutPanel2.Controls.Add(Label1, 1, 0)
         TableLayoutPanel2.Dock = DockStyle.Fill
         TableLayoutPanel2.Location = New Point(27, 16)
@@ -198,23 +198,23 @@ Partial Class UserManagementAdmin
         btnTambahUser.Text = "Tambah"
         btnTambahUser.UseVisualStyleBackColor = True
         ' 
-        ' TextBox1
+        ' txtSearch
         ' 
-        TextBox1.Dock = DockStyle.Bottom
-        TextBox1.Location = New Point(524, 22)
-        TextBox1.Name = "TextBox1"
-        TextBox1.PlaceholderText = "Cari Santri"
-        TextBox1.Size = New Size(219, 23)
-        TextBox1.TabIndex = 5
+        txtSearch.Dock = DockStyle.Bottom
+        txtSearch.Location = New Point(524, 22)
+        txtSearch.Name = "txtSearch"
+        txtSearch.PlaceholderText = "Cari Santri"
+        txtSearch.Size = New Size(219, 23)
+        txtSearch.TabIndex = 5
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
         Label1.Dock = DockStyle.Top
-        Label1.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label1.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.Location = New Point(77, 0)
         Label1.Name = "Label1"
-        Label1.Size = New Size(441, 15)
+        Label1.Size = New Size(441, 21)
         Label1.TabIndex = 6
         Label1.Text = "USER MANAGEMENT"
         Label1.TextAlign = ContentAlignment.TopCenter
@@ -241,7 +241,7 @@ Partial Class UserManagementAdmin
     Friend WithEvents DGView1 As DataGridView
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents btnTambahUser As Button
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtSearch As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
