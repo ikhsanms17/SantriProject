@@ -5,9 +5,9 @@ Module KelasManage
     Dim i As Integer
     Dim dr As MySqlDataReader
 
-    Public Sub TambahKelas()
+    'Public Sub TambahKelas()
 
-    End Sub
+    'End Sub
 
     Public Sub ShowKelas(DGView1 As DataGridView)
         Try
@@ -70,32 +70,32 @@ Module KelasManage
         End Try
     End Sub
 
-    Public Sub EditKelas(txt_nama As TextBox, txt_deskripsi As TextBox, selectedNamaKelas As String)
-        Try
-            conn.Open()
-            Dim query As String = "
-            UPDATE users SET 
-                nama = @nama,
-                deskripsi = @deskripsi,
-                updated_at = CURRENT_TIMESTAMP
-            WHERE nama = @old_nama;
-            "
+    'Public Sub EditKelas(txt_nama As TextBox, txt_deskripsi As TextBox, selectedNamaKelas As String)
+    '    Try
+    '        conn.Open()
+    '        Dim query As String = "
+    '        UPDATE users SET 
+    '            nama = @nama,
+    '            deskripsi = @deskripsi,
+    '            updated_at = CURRENT_TIMESTAMP
+    '        WHERE nama = @old_nama;
+    '        "
 
-            Dim cmd As New MySqlCommand(query, conn)
-            cmd.Parameters.Clear()
-            cmd.Parameters.AddWithValue("@nama", txt_nama.Text.Trim())
-            cmd.Parameters.AddWithValue("@deskripsi", txt_deskripsi.Text)
-            cmd.Parameters.AddWithValue("@old_nama", selectedNamaKelas)
+    '        Dim cmd As New MySqlCommand(query, conn)
+    '        cmd.Parameters.Clear()
+    '        cmd.Parameters.AddWithValue("@nama", txt_nama.Text.Trim())
+    '        cmd.Parameters.AddWithValue("@deskripsi", txt_deskripsi.Text)
+    '        cmd.Parameters.AddWithValue("@old_nama", selectedNamaKelas)
 
-            cmd.ExecuteNonQuery()
-            MessageBox.Show("Data pengguna berhasil diperbarui.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    '        cmd.ExecuteNonQuery()
+    '        MessageBox.Show("Data pengguna berhasil diperbarui.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-        Catch ex As Exception
-            MsgBox("Gagal memperbarui user: " & ex.Message)
-        Finally
-            Database.CloseConnection(conn)
-        End Try
-    End Sub
+    '    Catch ex As Exception
+    '        MsgBox("Gagal memperbarui user: " & ex.Message)
+    '    Finally
+    '        Database.CloseConnection(conn)
+    '    End Try
+    'End Sub
 
     Public Sub DeleteKelas(id As Integer)
         Try
