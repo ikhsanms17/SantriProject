@@ -62,12 +62,12 @@ Public Class DashboardAdmin
         PieChartSaldo.LegendPosition = LiveChartsCore.Measure.LegendPosition.Right
     End Sub
 
-    Private Sub ChartKeuangan_Load(sender As Object, e As EventArgs) Handles ChartKeuangan.Load
+    Private Sub ChartKeuangan_Load(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtnKembali.Click
-        Dim parentForm As Form1 = CType(Me.MdiParent, Form1)
+    Private Sub btnKembali_Click(sender As Object, e As EventArgs) Handles btnKembali.Click
+        Dim parentForm = CType(MdiParent, Form1)
         parentForm.OpenChildForm(New MenuAdmin)
     End Sub
 End Class

@@ -62,7 +62,7 @@ Partial Class UserManagementAdmin
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 82F))
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 3F))
         TableLayoutPanel1.Size = New Size(800, 450)
-        TableLayoutPanel1.TabIndex = 0
+        TableLayoutPanel1.TabIndex = 2
         ' 
         ' DGView1
         ' 
@@ -239,10 +239,6 @@ Partial Class UserManagementAdmin
 
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents DGView1 As DataGridView
-    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
-    Friend WithEvents btnTambahUser As Button
-    Friend WithEvents txtSearch As TextBox
-    Friend WithEvents Label1 As Label
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
@@ -255,4 +251,8 @@ Partial Class UserManagementAdmin
     Friend WithEvents Column10 As DataGridViewTextBoxColumn
     Friend WithEvents btnEdit As DataGridViewButtonColumn
     Friend WithEvents btnHapus As DataGridViewButtonColumn
+    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents btnTambahUser As Button
+    Friend WithEvents txtSearch As TextBox
+    Friend WithEvents Label1 As Label
 End Class

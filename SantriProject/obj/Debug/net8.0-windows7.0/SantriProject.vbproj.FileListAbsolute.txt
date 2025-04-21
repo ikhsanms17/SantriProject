@@ -148,3 +148,5 @@ E:\Comission\SantriProject\SantriProject\obj\Debug\net8.0-windows7.0\refint\Sant
 E:\Comission\SantriProject\SantriProject\obj\Debug\net8.0-windows7.0\SantriProject.pdb
 E:\Comission\SantriProject\SantriProject\obj\Debug\net8.0-windows7.0\SantriProject.genruntimeconfig.cache
 E:\Comission\SantriProject\SantriProject\obj\Debug\net8.0-windows7.0\ref\SantriProject.dll
+E:\Comission\SantriProject\SantriProject\obj\Debug\net8.0-windows7.0\SantriProject.AddPerizinan.resources
+E:\Comission\SantriProject\SantriProject\obj\Debug\net8.0-windows7.0\SantriProject.UpdatePerizinan.resources

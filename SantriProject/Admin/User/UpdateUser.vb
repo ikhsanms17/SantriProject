@@ -18,13 +18,13 @@
         LoadKelas(cmb_kelas)
     End Sub
 
-    Private Sub BtnKembali_Click(sender As Object, e As EventArgs) Handles BtnKembali.Click
-        Dim result As DialogResult = MessageBox.Show("Yakin untuk kembali? Perubahan data saat ini tidak akan disimpan.", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+    Private Sub BtnKembali_Click(sender As Object, e As EventArgs)
+        Dim result = MessageBox.Show("Yakin untuk kembali? Perubahan data saat ini tidak akan disimpan.", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
         If result = DialogResult.Yes Then
-            Dim parentForm As Form1 = CType(Me.MdiParent, Form1)
-            parentForm.OpenChildForm(New UserManagementAdmin())
-            Me.Close()
+            Dim parentForm = CType(MdiParent, Form1)
+            parentForm.OpenChildForm(New UserManagementAdmin)
+            Close()
         End If
     End Sub
 
@@ -44,7 +44,7 @@
         selectedUsername = userData("nama_pengguna")
     End Sub
 
-    Private Sub BtnSimpan_Click(sender As Object, e As EventArgs) Handles BtnSimpan.Click
+    Private Sub BtnSimpan_Click(sender As Object, e As EventArgs)
         EditUser(txt_nama,
             txt_username,
             txt_email,
@@ -57,7 +57,7 @@
             txt_alamat,
             selectedUsername)
 
-        Dim parentForm As Form1 = CType(Me.MdiParent, Form1)
+        Dim parentForm = CType(MdiParent, Form1)
         parentForm.OpenChildForm(New UserManagementAdmin)
     End Sub
 End Class

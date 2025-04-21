@@ -23,6 +23,7 @@ Partial Class UpdateUser
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         TableLayoutPanel1 = New TableLayoutPanel()
+        Label15 = New Label()
         TableLayoutPanel2 = New TableLayoutPanel()
         Label10 = New Label()
         Label9 = New Label()
@@ -46,7 +47,6 @@ Partial Class UpdateUser
         txt_nama_ibu = New TextBox()
         txt_alamat = New TextBox()
         Label1 = New Label()
-        Label11 = New Label()
         TableLayoutPanel1.SuspendLayout()
         TableLayoutPanel2.SuspendLayout()
         SuspendLayout()
@@ -57,8 +57,8 @@ Partial Class UpdateUser
         TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 3F))
         TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 94F))
         TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 3F))
+        TableLayoutPanel1.Controls.Add(Label15, 1, 1)
         TableLayoutPanel1.Controls.Add(TableLayoutPanel2, 1, 2)
-        TableLayoutPanel1.Controls.Add(Label11, 1, 1)
         TableLayoutPanel1.Dock = DockStyle.Fill
         TableLayoutPanel1.Location = New Point(0, 0)
         TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -69,6 +69,18 @@ Partial Class UpdateUser
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 3F))
         TableLayoutPanel1.Size = New Size(800, 450)
         TableLayoutPanel1.TabIndex = 3
+        ' 
+        ' Label15
+        ' 
+        Label15.AutoSize = True
+        Label15.Dock = DockStyle.Fill
+        Label15.Font = New Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label15.Location = New Point(27, 13)
+        Label15.Name = "Label15"
+        Label15.Size = New Size(746, 40)
+        Label15.TabIndex = 6
+        Label15.Text = "TAMBAH PENGGUNA"
+        Label15.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' TableLayoutPanel2
         ' 
@@ -323,18 +335,6 @@ Partial Class UpdateUser
         Label1.TabIndex = 20
         Label1.Text = "Nama Lengkap"
         ' 
-        ' Label11
-        ' 
-        Label11.AutoSize = True
-        Label11.Dock = DockStyle.Fill
-        Label11.Font = New Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label11.Location = New Point(27, 13)
-        Label11.Name = "Label11"
-        Label11.Size = New Size(746, 40)
-        Label11.TabIndex = 1
-        Label11.Text = "EDIT PENGGUNA"
-        Label11.TextAlign = ContentAlignment.MiddleCenter
-        ' 
         ' UpdateUser
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -353,6 +353,7 @@ Partial Class UpdateUser
     End Sub
 
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents Label15 As Label
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents Label10 As Label
     Friend WithEvents Label9 As Label
@@ -376,5 +377,4 @@ Partial Class UpdateUser
     Friend WithEvents txt_nama_ibu As TextBox
     Friend WithEvents txt_alamat As TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents Label11 As Label
 End Class

@@ -16,6 +16,12 @@
     <Compile Update="Admin\PerizinanAdmin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Admin\Perizinan\AddPerizinan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Admin\Perizinan\UpdatePerizinan.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Admin\Petugas.vb">
       <SubType>Form</SubType>
     </Compile>
