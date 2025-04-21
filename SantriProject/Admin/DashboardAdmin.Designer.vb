@@ -35,9 +35,9 @@ Partial Class DashboardAdmin
         Label3 = New Label()
         Label7 = New Label()
         Label5 = New Label()
-        Label2 = New Label()
-        Label4 = New Label()
-        Label6 = New Label()
+        labelTotalSantri = New Label()
+        labelTotalSaldo = New Label()
+        labelTotalPetugas = New Label()
         Label1 = New Label()
         TableLayoutPanel1.SuspendLayout()
         TableLayoutPanel3.SuspendLayout()
@@ -174,9 +174,9 @@ Partial Class DashboardAdmin
         TableLayoutPanel6.Controls.Add(Label3, 1, 0)
         TableLayoutPanel6.Controls.Add(Label7, 5, 0)
         TableLayoutPanel6.Controls.Add(Label5, 3, 0)
-        TableLayoutPanel6.Controls.Add(Label2, 1, 1)
-        TableLayoutPanel6.Controls.Add(Label4, 3, 1)
-        TableLayoutPanel6.Controls.Add(Label6, 5, 1)
+        TableLayoutPanel6.Controls.Add(labelTotalSantri, 1, 1)
+        TableLayoutPanel6.Controls.Add(labelTotalSaldo, 3, 1)
+        TableLayoutPanel6.Controls.Add(labelTotalPetugas, 5, 1)
         TableLayoutPanel6.Dock = DockStyle.Fill
         TableLayoutPanel6.Location = New Point(3, 3)
         TableLayoutPanel6.Name = "TableLayoutPanel6"
@@ -217,44 +217,44 @@ Partial Class DashboardAdmin
         Label5.TabIndex = 17
         Label5.Text = "TOTAL SALDO"
         ' 
-        ' Label2
+        ' labelTotalSantri
         ' 
-        Label2.AutoSize = True
-        Label2.BackColor = Color.FloralWhite
-        Label2.Dock = DockStyle.Fill
-        Label2.Font = New Font("Segoe UI Semibold", 15.75F, FontStyle.Bold)
-        Label2.Location = New Point(23, 17)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(213, 81)
-        Label2.TabIndex = 23
-        Label2.Text = "TEST"
-        Label2.TextAlign = ContentAlignment.MiddleCenter
+        labelTotalSantri.AutoSize = True
+        labelTotalSantri.BackColor = Color.FloralWhite
+        labelTotalSantri.Dock = DockStyle.Fill
+        labelTotalSantri.Font = New Font("Segoe UI Semibold", 15.75F, FontStyle.Bold)
+        labelTotalSantri.Location = New Point(23, 17)
+        labelTotalSantri.Name = "labelTotalSantri"
+        labelTotalSantri.Size = New Size(213, 81)
+        labelTotalSantri.TabIndex = 23
+        labelTotalSantri.Text = "TEST"
+        labelTotalSantri.TextAlign = ContentAlignment.MiddleCenter
         ' 
-        ' Label4
+        ' labelTotalSaldo
         ' 
-        Label4.AutoSize = True
-        Label4.BackColor = Color.FloralWhite
-        Label4.Dock = DockStyle.Fill
-        Label4.Font = New Font("Segoe UI Semibold", 15.75F, FontStyle.Bold)
-        Label4.Location = New Point(262, 17)
-        Label4.Name = "Label4"
-        Label4.Size = New Size(213, 81)
-        Label4.TabIndex = 24
-        Label4.Text = "TEST"
-        Label4.TextAlign = ContentAlignment.MiddleCenter
+        labelTotalSaldo.AutoSize = True
+        labelTotalSaldo.BackColor = Color.FloralWhite
+        labelTotalSaldo.Dock = DockStyle.Fill
+        labelTotalSaldo.Font = New Font("Segoe UI Semibold", 15.75F, FontStyle.Bold)
+        labelTotalSaldo.Location = New Point(262, 17)
+        labelTotalSaldo.Name = "labelTotalSaldo"
+        labelTotalSaldo.Size = New Size(213, 81)
+        labelTotalSaldo.TabIndex = 24
+        labelTotalSaldo.Text = "TEST"
+        labelTotalSaldo.TextAlign = ContentAlignment.MiddleCenter
         ' 
-        ' Label6
+        ' labelTotalPetugas
         ' 
-        Label6.AutoSize = True
-        Label6.BackColor = Color.FloralWhite
-        Label6.Dock = DockStyle.Fill
-        Label6.Font = New Font("Segoe UI Semibold", 15.75F, FontStyle.Bold)
-        Label6.Location = New Point(501, 17)
-        Label6.Name = "Label6"
-        Label6.Size = New Size(213, 81)
-        Label6.TabIndex = 25
-        Label6.Text = "TEST"
-        Label6.TextAlign = ContentAlignment.MiddleCenter
+        labelTotalPetugas.AutoSize = True
+        labelTotalPetugas.BackColor = Color.FloralWhite
+        labelTotalPetugas.Dock = DockStyle.Fill
+        labelTotalPetugas.Font = New Font("Segoe UI Semibold", 15.75F, FontStyle.Bold)
+        labelTotalPetugas.Location = New Point(501, 17)
+        labelTotalPetugas.Name = "labelTotalPetugas"
+        labelTotalPetugas.Size = New Size(213, 81)
+        labelTotalPetugas.TabIndex = 25
+        labelTotalPetugas.Text = "TEST"
+        labelTotalPetugas.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' Label1
         ' 
@@ -302,7 +302,7 @@ Partial Class DashboardAdmin
     Friend WithEvents Label3 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label6 As Label
+    Friend WithEvents labelTotalSantri As Label
+    Friend WithEvents labelTotalSaldo As Label
+    Friend WithEvents labelTotalPetugas As Label
 End Class

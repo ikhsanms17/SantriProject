@@ -32,23 +32,31 @@ Public Class UpdatePerizinan
         dtpBatasIzin.Value = Convert.ToDateTime(userData("tanggal_batas_izin"))
         dtpDatang.Value = Convert.ToDateTime(userData("tanggal_datang"))
 
-        ' Pastikan data pengguna sudah diload dulu
-        LoadUser(cmbUser) ' Panggil LoadUser agar data pengguna terisi
+        ' Muat ulang data user ke comboBox
+        LoadUser(cmbUser)
+
+        ' Tunggu sampai data user benar-benar termuat
+        Application.DoEvents()
+
+        ' Pastikan DisplayMember dan ValueMember sudah di-set di LoadUser()
+
+        ' Set pengguna_id ke ComboBox berdasarkan ID
+        If cmbUser.Items.Count > 0 Then
+            cmbUser.SelectedValue = userData("pengguna_id")
+        End If
 
         ' Kosongkan dan isi kembali daftar status izin
         cmbStatusIzin.Items.Clear()
         cmbStatusIzin.Items.Add("Dizinkan")
         cmbStatusIzin.Items.Add("Tidak Dizinkan")
 
-        ' Set pengguna_id ke comboBox
-        cmbUser.SelectedValue = userData("pengguna_id")
-
-        ' Set status (izin) ke comboBox
+        ' Set status (izin) ke ComboBox
         cmbStatusIzin.SelectedItem = userData("status")
 
-        ' Simpan no_izin ke dalam variabel/global jika perlu
+        ' Simpan no_izin ke dalam variabel/global jika diperlukan
         selectedNoIzin = userData("no_izin")
     End Sub
+
 
 
 

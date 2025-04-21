@@ -77,10 +77,26 @@ Public Class PerizinanAdmin
                         ' Ambil seluruh data dari baris yang dipilih
                         Dim row = DGView1.Rows(e.RowIndex)
 
+                        ' Ambil nama pengguna dari kolom (bukan ID)
+                        Dim namaPengguna As String = row.Cells("pengguna_id").Value.ToString ' Kolom ini berisi NAMA pengguna
+                        Dim penggunaId As String = ""
+
+                        ' Ambil ID berdasarkan nama pengguna dari tabel users
+                        Using cmd As New MySqlCommand("SELECT id FROM users WHERE nama = @nama", conn)
+                            cmd.Parameters.AddWithValue("@nama", namaPengguna)
+
+                            If conn.State = ConnectionState.Closed Then conn.Open()
+                            Dim reader = cmd.ExecuteReader()
+                            If reader.Read() Then
+                                penggunaId = reader("id").ToString()
+                            End If
+                            reader.Close()
+                        End Using
+
                         ' Buat dictionary untuk menyimpan data pengguna
                         Dim userData As New Dictionary(Of String, String)
                         userData("no_izin") = no_izin
-                        userData("pengguna_id") = row.Cells("pengguna_id").Value.ToString ' Menyimpan ID pengguna
+                        userData("pengguna_id") = penggunaId ' Sekarang kita simpan ID, bukan nama
                         userData("nama_penjemput") = row.Cells("nama_penjemput").Value.ToString
                         userData("tanggal_izin") = row.Cells("tanggal_izin").Value.ToString
                         userData("tanggal_batas_izin") = row.Cells("tanggal_batas_izin").Value.ToString
@@ -91,10 +107,11 @@ Public Class PerizinanAdmin
                         Dim formUpdate As New UpdatePerizinan
                         formUpdate.LoadIzinData(userData)
 
-                        ' Open the form in the MDI parent
+                        ' Tampilkan form sebagai child MDI
                         Dim parentForm = CType(MdiParent, Form1)
                         parentForm.OpenChildForm(formUpdate)
                     End If
+
 
 
         ' === 🗑️ TOMBOL HAPUS ===
