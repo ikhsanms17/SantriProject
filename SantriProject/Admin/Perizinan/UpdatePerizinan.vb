@@ -7,7 +7,6 @@ Public Class UpdatePerizinan
     Dim i As Integer
     Dim dr As MySqlDataReader
 
-
     Private Sub UpdatePerizinan_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Set form agar bisa di-resize
         Me.FormBorderStyle = FormBorderStyle.None
@@ -57,9 +56,6 @@ Public Class UpdatePerizinan
         selectedNoIzin = userData("no_izin")
     End Sub
 
-
-
-
     Private Sub BtnKembali_Click(sender As Object, e As EventArgs) Handles BtnKembali.Click
         Dim result As DialogResult = MessageBox.Show("Yakin untuk kembali? Data saat ini tidak akan disimpan.", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
@@ -74,6 +70,6 @@ Public Class UpdatePerizinan
         EditIzin(txt_nama_penjemput, dtpIzin, dtpBatasIzin, dtpDatang, cmbUser, cmbStatusIzin, selectedNoIzin)
 
         Dim parentForm As Form1 = CType(Me.MdiParent, Form1)
-        parentForm.OpenChildForm(New PerizinanAdmin)
+        parentForm.OpenChildForm(New PerizinanAdmin())
     End Sub
 End Class

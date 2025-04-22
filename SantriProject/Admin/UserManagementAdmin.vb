@@ -2,21 +2,7 @@
 
 Public Class UserManagementAdmin
 
-    'Dim conn As New MySqlConnection("server=localhost;username=root;password=;database=vb_santri")
-    'Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-    '    Try
-    '        conn.Open()
-    '        Dim cmd As New MySqlCommand("", conn)
-    '    Catch ex As Exception
-    '        MsgBox(ex.Message)
-    '    Finally
-    '        conn.Close()
-    '    End Try
-    'End Sub
-
     Private Sub UserManagementAdmin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'MsgBox("Form loaded!")
-
         ' Set form agar bisa di-resize
         Me.FormBorderStyle = FormBorderStyle.None
         Me.WindowState = FormWindowState.Maximized
@@ -26,21 +12,88 @@ Public Class UserManagementAdmin
 
         ResizeControls(Me, scaleX, scaleY)
 
-        ShowUser(DGView1)
+        Try
+            If conn.State = ConnectionState.Closed Then
+                conn.Open()
+            End If
+
+            DGView1.Rows.Clear()
+            DGView1.Columns.Clear()
+            DGView1.AutoGenerateColumns = False
+
+            DGView1.Columns.Add("nama", "Nama")
+            DGView1.Columns("nama").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+
+            DGView1.Columns.Add("nama_pengguna", "Nama Pengguna")
+            DGView1.Columns("nama_pengguna").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+
+            DGView1.Columns.Add("email", "Email")
+            DGView1.Columns("email").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells ' Contoh: email panjang, jadi pakai Fill
+
+            DGView1.Columns.Add("nis", "NIS")
+            DGView1.Columns("nis").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+
+            DGView1.Columns.Add("kelas_id", "Kelas")
+            DGView1.Columns("kelas_id").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+
+            DGView1.Columns.Add("jenis_kelamin", "Jenis Kelamin")
+            DGView1.Columns("jenis_kelamin").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+
+            DGView1.Columns.Add("tanggal_lahir", "Tanggal Lahir")
+            DGView1.Columns("tanggal_lahir").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+
+            DGView1.Columns.Add("nama_ayah", "Ayah")
+            DGView1.Columns("nama_ayah").AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+
+            DGView1.Columns.Add("nama_ibu", "Ibu")
+            DGView1.Columns("nama_ibu").AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+
+            DGView1.Columns.Add("alamat", "Alamat")
+            DGView1.Columns("alamat").AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill ' Biar alamat bisa lebih lebar
+
+            ' Tambah tombol Edit
+            Dim btnEditUser As New DataGridViewButtonColumn()
+            btnEditUser.Name = "btnEditUser"
+            btnEditUser.HeaderText = ""
+            btnEditUser.Text = "Edit"
+            btnEditUser.UseColumnTextForButtonValue = True
+            DGView1.Columns.Add(btnEditUser)
+
+            ' Tambah tombol Delete
+            Dim btnDeleteUser As New DataGridViewButtonColumn()
+            btnDeleteUser.Name = "btnHapusUser"
+            btnDeleteUser.HeaderText = ""
+            btnDeleteUser.Text = "Delete"
+            btnDeleteUser.UseColumnTextForButtonValue = True
+            DGView1.Columns.Add(btnDeleteUser)
+
+            DGView1.DefaultCellStyle.Font = New Font("Segoe UI", 10)
+            DGView1.ColumnHeadersDefaultCellStyle.Font = New Font("Segoe UI", 11, FontStyle.Bold)
+
+            DGView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+            DGView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+
+            ShowUser(DGView1)
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            Database.CloseConnection(conn)
+        End Try
     End Sub
 
-    Private Sub DGView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
+    Private Sub DGView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGView1.CellContentClick
         If e.RowIndex >= 0 Then
             Dim columnName = DGView1.Columns(e.ColumnIndex).Name
 
             Select Case columnName
 
-                Case "btnEdit"
+                Case "btnEditUser"
                     If e.RowIndex >= 0 Then
                         Dim colName = DGView1.Columns(e.ColumnIndex).Name
 
                         ' Periksa apakah tombol yang ditekan adalah tombol Editd
-                        If colName = "btnEdit" Then
+                        If colName = "btnEditUser" Then
                             ' Ambil nama dari baris yang ditekan
                             Dim nama = DGView1.Rows(e.RowIndex).Cells("nama").Value.ToString
 
@@ -64,17 +117,18 @@ Public Class UserManagementAdmin
                                 userData("alamat") = DGView1.Rows(e.RowIndex).Cells("alamat").Value.ToString
 
                                 ' Buka form sebagai MDI child
-                                Dim formUpdate As New UpdateUser
-                                formUpdate.LoadUserData(userData) ' isi data
-                                Dim parentForm = CType(MdiParent, Form1)
+                                Dim formUpdate As New UpdateUser()
+                                formUpdate.LoadUserData(userData)
+
+                                Dim parentForm = CType(Me.MdiParent, Form1)
                                 parentForm.OpenChildForm(formUpdate)
                             End If
                         End If
                     End If
 
-                Case "btnHapus"
+                Case "btnHapusUser"
                     ' Cek apakah tombol Delete diklik
-                    If e.ColumnIndex = DGView1.Columns("btnHapus").Index AndAlso e.RowIndex >= 0 Then
+                    If e.ColumnIndex = DGView1.Columns("btnHapusUser").Index AndAlso e.RowIndex >= 0 Then
                         ' Ambil nilai nama_pengguna dari baris yang diklik
                         Dim nama = DGView1.Rows(e.RowIndex).Cells("Nama").Value.ToString
 
@@ -89,12 +143,162 @@ Public Class UserManagementAdmin
         End If
     End Sub
 
-    Private Sub btnTambahUser_Click(sender As Object, e As EventArgs)
-        Dim parentForm = CType(MdiParent, Form1)
-        parentForm.OpenChildForm(New AddUser())
+    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
+        Dim keyword As String = txtSearch.Text.Trim()
+
+        Try
+            If conn.State = ConnectionState.Closed Then
+                conn.Open()
+            End If
+
+            ' Jika keyword kosong, tampilkan semua user
+            If String.IsNullOrWhiteSpace(keyword) Then
+                ShowUser(DGView1)
+                Return
+            End If
+
+            Dim query As String = "
+                SELECT u.*, k.nama AS kelas_nama
+                FROM users u
+                JOIN user_role ur ON u.id = ur.user_id
+                JOIN roles r ON ur.role_id = r.id
+                LEFT JOIN kelas k ON u.kelas_id = k.id
+                WHERE r.nama = 'santri' AND u.deleted_at IS NULL
+                AND (nama LIKE @keyword OR nama_pengguna LIKE @keyword)
+            "
+
+            Dim cmd As New MySqlCommand(query, conn)
+            cmd.Parameters.AddWithValue("@keyword", "%" & keyword & "%")
+
+            Dim dr As MySqlDataReader = cmd.ExecuteReader()
+
+            ' Bersihkan baris sebelumnya
+            DGView1.Rows.Clear()
+
+            ' Tambahkan baris hasil pencarian
+            While dr.Read
+                DGView1.Rows.Add(
+                    dr("nama"),
+                    dr("nama_pengguna"),
+                    dr("email"),
+                    dr("nis"),
+                    dr("kelas_nama"),
+                    dr("jenis_kelamin"),
+                    Convert.ToDateTime(dr("tanggal_lahir")).ToString("dd-MM-yyyy"),
+                    dr("nama_ayah"),
+                    dr("nama_ibu"),
+                    dr("alamat"),
+                    Nothing, Nothing
+                )
+            End While
+
+            dr.Close()
+
+        Catch ex As Exception
+            MessageBox.Show("Terjadi kesalahan saat mencari user: " & ex.Message)
+        Finally
+            Database.CloseConnection(conn)
+        End Try
     End Sub
 
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs)
-        SearchUser(txtSearch.Text.Trim, DGView1)
+    Private Sub btnKembali_Click(sender As Object, e As EventArgs) Handles btnKembali.Click
+        Dim parentForm = CType(Me.MdiParent, Form1)
+        parentForm.OpenChildForm(MenuAdmin)
+    End Sub
+
+    Private Sub btnTambahUser_Click(sender As Object, e As EventArgs) Handles btnTambahUser.Click
+        Dim parentForm = CType(Me.MdiParent, Form1)
+        parentForm.OpenChildForm(AddUser)
+    End Sub
+
+    Private Sub ShowUser(dgv As DataGridView)
+        Try
+            If conn.State = ConnectionState.Closed Then
+                conn.Open()
+            End If
+
+            dgv.Rows.Clear()
+
+            Dim query As String = "
+            SELECT u.*, k.nama AS kelas_nama
+            FROM users u
+            JOIN user_role ur ON u.id = ur.user_id
+            JOIN roles r ON ur.role_id = r.id
+            LEFT JOIN kelas k ON u.kelas_id = k.id
+            WHERE r.nama = 'santri' AND u.deleted_at IS NULL
+        "
+
+            Dim cmd As New MySqlCommand(query, conn)
+            Dim dr As MySqlDataReader = cmd.ExecuteReader()
+
+            While dr.Read
+                dgv.Rows.Add(
+                dr("nama"),
+                dr("nama_pengguna"),
+                dr("email"),
+                dr("nis"),
+                dr("kelas_nama"),
+                dr("jenis_kelamin"),
+                dr("tanggal_lahir"),
+                dr("nama_ayah"),
+                dr("nama_ibu"),
+                dr("alamat"),
+                Nothing, Nothing
+            )
+            End While
+
+            dr.Close()
+
+        Catch ex As Exception
+            MessageBox.Show("Gagal menampilkan data user: " & ex.Message)
+        Finally
+            Database.CloseConnection(conn)
+        End Try
+    End Sub
+
+    Private Sub DeleteUser(nama As String)
+        Try
+            If conn.State = ConnectionState.Closed Then
+                conn.Open()
+            End If
+
+            ' Cek apakah user adalah santri
+            Dim checkQuery As String = "
+            SELECT u.id 
+            FROM users u
+            JOIN user_role ur ON u.id = ur.user_id
+            JOIN roles r ON ur.role_id = r.id
+            WHERE u.nama = @nama AND r.nama = 'santri' AND u.deleted_at IS NULL
+        "
+
+            Dim checkCmd As New MySqlCommand(checkQuery, conn)
+            checkCmd.Parameters.AddWithValue("@nama", nama)
+
+            Dim userIdObj = checkCmd.ExecuteScalar()
+
+            If userIdObj Is Nothing Then
+                MessageBox.Show("User bukan santri atau sudah dihapus.", "Tidak Dapat Dihapus", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
+            ' Soft delete user dengan update deleted_at
+            Dim deleteQuery As String = "UPDATE users SET deleted_at = NOW() WHERE nama = @nama"
+            Dim deleteCmd As New MySqlCommand(deleteQuery, conn)
+            deleteCmd.Parameters.AddWithValue("@nama", nama)
+
+            Dim result As Integer = deleteCmd.ExecuteNonQuery()
+
+            If result > 0 Then
+                MessageBox.Show("User berhasil dihapus (soft delete).", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                ShowUser(DGView1) ' Refresh tampilan
+            Else
+                MessageBox.Show("User gagal dihapus.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show("Terjadi kesalahan saat menghapus user: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            Database.CloseConnection(conn)
+        End Try
     End Sub
 End Class

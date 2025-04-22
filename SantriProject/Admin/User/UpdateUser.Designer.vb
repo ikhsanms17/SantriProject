@@ -79,8 +79,8 @@ Partial Class UpdateUser
         Label15.Name = "Label15"
         Label15.Size = New Size(746, 40)
         Label15.TabIndex = 6
-        Label15.Text = "TAMBAH PENGGUNA"
-        Label15.TextAlign = ContentAlignment.MiddleCenter
+        Label15.Text = "UBAH DATA SANTRI"
+        Label15.TextAlign = ContentAlignment.TopCenter
         ' 
         ' TableLayoutPanel2
         ' 

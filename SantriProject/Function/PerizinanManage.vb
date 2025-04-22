@@ -250,6 +250,67 @@ Module PerizinanManage
         End Try
     End Sub
 
+    Public Sub SearchIzin(keyword As String, dgv As DataGridView)
+        Try
+            If conn.State = ConnectionState.Closed Then
+                conn.Open()
+            End If
+
+            ' Jika keyword kosong, tampilkan semua izin
+            If String.IsNullOrWhiteSpace(keyword) Then
+                ShowIzin(dgv) ' Fungsi untuk menampilkan semua data perizinan
+                Return
+            End If
+
+            Dim query As String = "
+            SELECT 
+                p.no_izin,
+                p.nama_penjemput,
+                p.tanggal_izin,
+                p.tanggal_batas_izin,
+                p.tanggal_datang,
+                p.status,
+                u.nama AS nama_pengguna
+            FROM perizinan p
+            LEFT JOIN users u ON u.id = p.pengguna_id
+            WHERE 
+                p.deleted_at IS NULL
+                AND (
+                    p.nama_penjemput LIKE @keyword OR
+                    p.status LIKE @keyword OR
+                    u.nama LIKE @keyword
+                )
+        "
+
+            Dim cmd As New MySqlCommand(query, conn)
+            cmd.Parameters.AddWithValue("@keyword", "%" & keyword & "%")
+
+            Dim dr As MySqlDataReader = cmd.ExecuteReader()
+
+            dgv.Rows.Clear()
+
+            While dr.Read
+                dgv.Rows.Add(
+                dr("no_izin"),
+                dr("nama_pengguna"),
+                dr("nama_penjemput"),
+                Convert.ToDateTime(dr("tanggal_izin")).ToString("yyyy-MM-dd"),
+                Convert.ToDateTime(dr("tanggal_batas_izin")).ToString("yyyy-MM-dd"),
+                Convert.ToDateTime(dr("tanggal_datang")).ToString("yyyy-MM-dd"),
+                dr("status"),
+                Nothing, Nothing ' kolom tombol edit & hapus jika ada
+            )
+            End While
+
+            dr.Close()
+
+        Catch ex As Exception
+            MessageBox.Show("Terjadi kesalahan saat mencari perizinan: " & ex.Message)
+        Finally
+            Database.CloseConnection(conn)
+        End Try
+    End Sub
+
 
     Public Sub LoadUser(cmb As ComboBox)
         If conn.State = ConnectionState.Closed Then

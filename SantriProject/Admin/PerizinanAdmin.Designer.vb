@@ -25,6 +25,8 @@ Partial Class PerizinanAdmin
         TableLayoutPanel1 = New TableLayoutPanel()
         Button1 = New Button()
         TableLayoutPanel2 = New TableLayoutPanel()
+        txtSearch = New TextBox()
+        Label2 = New Label()
         TableLayoutPanel3 = New TableLayoutPanel()
         DGView1 = New DataGridView()
         DataGridViewTextBoxColumn51 = New DataGridViewTextBoxColumn()
@@ -39,8 +41,6 @@ Partial Class PerizinanAdmin
         TableLayoutPanel4 = New TableLayoutPanel()
         btnTambahIzin = New Button()
         btnKembali = New Button()
-        Label2 = New Label()
-        TextBox1 = New TextBox()
         TableLayoutPanel1.SuspendLayout()
         TableLayoutPanel2.SuspendLayout()
         TableLayoutPanel3.SuspendLayout()
@@ -83,7 +83,7 @@ Partial Class PerizinanAdmin
         TableLayoutPanel2.ColumnCount = 2
         TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 75F))
         TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25F))
-        TableLayoutPanel2.Controls.Add(TextBox1, 1, 0)
+        TableLayoutPanel2.Controls.Add(txtSearch, 1, 0)
         TableLayoutPanel2.Controls.Add(Label2, 0, 0)
         TableLayoutPanel2.Dock = DockStyle.Fill
         TableLayoutPanel2.Location = New Point(27, 16)
@@ -92,6 +92,27 @@ Partial Class PerizinanAdmin
         TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
         TableLayoutPanel2.Size = New Size(746, 48)
         TableLayoutPanel2.TabIndex = 1
+        ' 
+        ' txtSearch
+        ' 
+        txtSearch.Dock = DockStyle.Bottom
+        txtSearch.Location = New Point(562, 22)
+        txtSearch.Name = "txtSearch"
+        txtSearch.PlaceholderText = "Cari Perizinan"
+        txtSearch.Size = New Size(181, 23)
+        txtSearch.TabIndex = 15
+        ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.Dock = DockStyle.Fill
+        Label2.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label2.Location = New Point(3, 0)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(553, 48)
+        Label2.TabIndex = 14
+        Label2.Text = "DAFTAR PERIZINAN"
+        Label2.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' TableLayoutPanel3
         ' 
@@ -233,27 +254,6 @@ Partial Class PerizinanAdmin
         btnKembali.Text = "Kembali"
         btnKembali.UseVisualStyleBackColor = True
         ' 
-        ' Label2
-        ' 
-        Label2.AutoSize = True
-        Label2.Dock = DockStyle.Fill
-        Label2.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label2.Location = New Point(3, 0)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(553, 48)
-        Label2.TabIndex = 14
-        Label2.Text = "DAFTAR PERIZINAN"
-        Label2.TextAlign = ContentAlignment.MiddleCenter
-        ' 
-        ' TextBox1
-        ' 
-        TextBox1.Dock = DockStyle.Bottom
-        TextBox1.Location = New Point(562, 22)
-        TextBox1.Name = "TextBox1"
-        TextBox1.PlaceholderText = "Cari Perizinan"
-        TextBox1.Size = New Size(181, 23)
-        TextBox1.TabIndex = 15
-        ' 
         ' PerizinanAdmin
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -290,6 +290,6 @@ Partial Class PerizinanAdmin
     Friend WithEvents statusCombo As DataGridViewComboBoxColumn
     Friend WithEvents DataGridViewButtonColumn11 As DataGridViewButtonColumn
     Friend WithEvents DataGridViewButtonColumn12 As DataGridViewButtonColumn
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtSearch As TextBox
     Friend WithEvents Label2 As Label
 End Class

@@ -40,6 +40,7 @@ Partial Class UserManagementAdmin
         btnTambahUser = New Button()
         txtSearch = New TextBox()
         Label1 = New Label()
+        btnKembali = New Button()
         TableLayoutPanel1.SuspendLayout()
         CType(DGView1, ComponentModel.ISupportInitialize).BeginInit()
         TableLayoutPanel2.SuspendLayout()
@@ -53,14 +54,15 @@ Partial Class UserManagementAdmin
         TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 3F))
         TableLayoutPanel1.Controls.Add(DGView1, 1, 2)
         TableLayoutPanel1.Controls.Add(TableLayoutPanel2, 1, 1)
+        TableLayoutPanel1.Controls.Add(btnKembali, 1, 3)
         TableLayoutPanel1.Dock = DockStyle.Fill
         TableLayoutPanel1.Location = New Point(0, 0)
         TableLayoutPanel1.Name = "TableLayoutPanel1"
         TableLayoutPanel1.RowCount = 4
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 3F))
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 12F))
-        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 82F))
-        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 3F))
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 75F))
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 10F))
         TableLayoutPanel1.Size = New Size(800, 450)
         TableLayoutPanel1.TabIndex = 2
         ' 
@@ -75,7 +77,7 @@ Partial Class UserManagementAdmin
         DGView1.Name = "DGView1"
         DGView1.ReadOnly = True
         DGView1.RowHeadersVisible = False
-        DGView1.Size = New Size(746, 363)
+        DGView1.Size = New Size(746, 331)
         DGView1.TabIndex = 0
         ' 
         ' Column1
@@ -216,8 +218,17 @@ Partial Class UserManagementAdmin
         Label1.Name = "Label1"
         Label1.Size = New Size(441, 21)
         Label1.TabIndex = 6
-        Label1.Text = "USER MANAGEMENT"
+        Label1.Text = "MANAJEMEN DATA SANTRI"
         Label1.TextAlign = ContentAlignment.TopCenter
+        ' 
+        ' btnKembali
+        ' 
+        btnKembali.Location = New Point(27, 407)
+        btnKembali.Name = "btnKembali"
+        btnKembali.Size = New Size(75, 23)
+        btnKembali.TabIndex = 2
+        btnKembali.Text = "Kembali"
+        btnKembali.UseVisualStyleBackColor = True
         ' 
         ' UserManagementAdmin
         ' 
@@ -255,4 +266,5 @@ Partial Class UserManagementAdmin
     Friend WithEvents btnTambahUser As Button
     Friend WithEvents txtSearch As TextBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents btnKembali As Button
 End Class

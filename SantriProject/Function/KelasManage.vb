@@ -164,7 +164,7 @@ Module KelasManage
                 conn.Open()
             End If
 
-            Dim cmd As New MySqlCommand("SELECT nama FROM kelas ORDER BY nama ASC", conn)
+            Dim cmd As New MySqlCommand("SELECT id, nama FROM kelas ORDER BY id ASC", conn)
             Dim adapter As New MySqlDataAdapter(cmd)
             Dim dt As New DataTable()
 
@@ -172,7 +172,7 @@ Module KelasManage
 
             cmb_kelas.DataSource = dt
             cmb_kelas.DisplayMember = "nama"
-            cmb_kelas.ValueMember = "nama"
+            cmb_kelas.ValueMember = "id"
 
         Catch ex As Exception
             MsgBox("Gagal load data kelas: " & ex.Message)

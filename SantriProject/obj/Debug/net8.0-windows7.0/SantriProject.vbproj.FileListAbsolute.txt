@@ -150,3 +150,5 @@ E:\Comission\SantriProject\SantriProject\obj\Debug\net8.0-windows7.0\SantriProje
 E:\Comission\SantriProject\SantriProject\obj\Debug\net8.0-windows7.0\ref\SantriProject.dll
 E:\Comission\SantriProject\SantriProject\obj\Debug\net8.0-windows7.0\SantriProject.AddPerizinan.resources
 E:\Comission\SantriProject\SantriProject\obj\Debug\net8.0-windows7.0\SantriProject.UpdatePerizinan.resources
+E:\Comission\SantriProject\SantriProject\obj\Debug\net8.0-windows7.0\SantriProject.AddPetugas.resources
+E:\Comission\SantriProject\SantriProject\obj\Debug\net8.0-windows7.0\SantriProject.UpdatePetugas.resources

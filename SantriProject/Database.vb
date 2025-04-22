@@ -1,10 +1,13 @@
 ﻿Imports MySql.Data.MySqlClient
 
-Public Class Database
-    Public Shared connectionString As String = "server=localhost;database=vb_santri;user=root;password="
+Public Module Database
+    Public connectionString As String = "server=localhost;database=vb_santri;user=root;password=root"
+    Public conn As MySqlConnection = Database.GetConnection()
+    Public i As Integer
+    Public dr As MySqlDataReader
 
     ' Mengambil koneksi ke database MySQL
-    Public Shared Function GetConnection() As MySqlConnection
+    Public Function GetConnection() As MySqlConnection
         Dim conn As New MySqlConnection(connectionString)
         Try
             If conn.State = ConnectionState.Closed Then
@@ -17,7 +20,7 @@ Public Class Database
     End Function
 
     ' Menutup koneksi MySQL
-    Public Shared Sub CloseConnection(ByVal conn As MySqlConnection)
+    Public Sub CloseConnection(ByVal conn As MySqlConnection)
         Try
             If conn IsNot Nothing AndAlso conn.State = ConnectionState.Open Then
                 conn.Close()
@@ -28,4 +31,4 @@ Public Class Database
     End Sub
 
 
-End Class
+End Module
