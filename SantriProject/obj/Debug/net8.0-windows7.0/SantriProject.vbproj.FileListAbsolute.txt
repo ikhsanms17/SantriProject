@@ -153,3 +153,5 @@ E:\Comission\SantriProject\SantriProject\obj\Debug\net8.0-windows7.0\SantriProje
 E:\Comission\SantriProject\SantriProject\obj\Debug\net8.0-windows7.0\SantriProject.AddPetugas.resources
 E:\Comission\SantriProject\SantriProject\obj\Debug\net8.0-windows7.0\SantriProject.UpdatePetugas.resources
 E:\Comission\SantriProject\SantriProject\bin\Debug\net8.0-windows7.0\itextsharp.dll
+E:\Comission\SantriProject\SantriProject\obj\Debug\net8.0-windows7.0\SantriProject.AddTransaksi.resources
+E:\Comission\SantriProject\SantriProject\obj\Debug\net8.0-windows7.0\SantriProject.UpdateTransaksi.resources

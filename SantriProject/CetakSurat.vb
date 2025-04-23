@@ -218,4 +218,30 @@ Module CetakSurat
         Return cell
     End Function
 
+    Public Sub UploadGambar(txtFilename As TextBox)
+        Using ofd As New OpenFileDialog
+            ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp"
+            ofd.Title = "Pilih Gambar Bukti"
+
+            If ofd.ShowDialog() = DialogResult.OK Then
+                Dim mainFolder As String = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\..\..\"))
+                Dim uploadsFolder As String = Path.Combine(mainFolder, "Uploads")
+
+                If Not Directory.Exists(uploadsFolder) Then
+                    Directory.CreateDirectory(uploadsFolder)
+                End If
+
+                Dim fileName As String = Path.GetFileName(ofd.FileName)
+                Dim destinationPath As String = Path.Combine(uploadsFolder, fileName)
+
+                File.Copy(ofd.FileName, destinationPath, True)
+
+                ' Simpan path ke database atau ke memori (opsional)
+                MessageBox.Show("Gambar berhasil diupload.")
+
+                txtFilename.Text = System.IO.Path.GetFileName(ofd.FileName)
+            End If
+        End Using
+    End Sub
+
 End Module
