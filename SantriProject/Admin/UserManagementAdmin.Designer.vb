@@ -152,6 +152,12 @@ Partial Class UserManagementAdmin
         Column10.HeaderText = "Alamat"
         Column10.Name = "Column10"
         Column10.ReadOnly = True
+
+
+        Column10.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Column10.HeaderText = "Saldo"
+        Column10.Name = "Column11"
+        Column10.ReadOnly = True
         ' 
         ' btnEdit
         ' 

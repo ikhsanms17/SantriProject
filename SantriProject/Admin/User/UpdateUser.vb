@@ -20,6 +20,29 @@ Public Class UpdateUser
         LoadKelas(cmb_kelas)
     End Sub
 
+    Private Sub LoadKelas(cmb_kelas As ComboBox)
+        Try
+            If conn.State = ConnectionState.Closed Then
+                conn.Open()
+            End If
+
+            Dim cmd As New MySqlCommand("SELECT id, nama FROM kelas ORDER BY id ASC", conn)
+            Dim adapter As New MySqlDataAdapter(cmd)
+            Dim dt As New DataTable()
+
+            adapter.Fill(dt)
+
+            cmb_kelas.DataSource = dt
+            cmb_kelas.DisplayMember = "nama"
+            cmb_kelas.ValueMember = "id"
+
+        Catch ex As Exception
+            MsgBox("Gagal load data kelas: " & ex.Message)
+        Finally
+            Database.CloseConnection(conn)
+        End Try
+    End Sub
+
     Private Sub BtnKembali_Click(sender As Object, e As EventArgs) Handles BtnKembali.Click
         Dim result = MessageBox.Show("Yakin untuk kembali? Perubahan data saat ini tidak akan disimpan.", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
@@ -50,24 +73,24 @@ Public Class UpdateUser
         Try
             conn.Open()
             Dim query As String = "
-            UPDATE users 
-            INNER JOIN user_role ON users.id = user_role.user_id
-            INNER JOIN roles ON user_role.role_id = roles.id
-            SET 
-                users.nama = @nama,
-                users.nama_pengguna = @username,
-                users.email = @email,
-                users.nis = @nis,
-                users.kelas_id = @kelas_id,
-                users.jenis_kelamin = @jenis_kelamin,
-                users.tanggal_lahir = @tgl_lahir,
-                users.nama_ayah = @nama_ayah,
-                users.nama_ibu = @nama_ibu,
-                users.alamat = @alamat,
-                users.updated_at = CURRENT_TIMESTAMP
-            WHERE users.nama_pengguna = @old_username
-            AND roles.nama = 'santri'
-            AND roles.deleted_at IS NULL;
+                UPDATE users 
+                INNER JOIN user_role ON users.id = user_role.user_id
+                INNER JOIN roles ON user_role.role_id = roles.id
+                SET 
+                    users.nama = @nama,
+                    users.nama_pengguna = @username,
+                    users.email = @email,
+                    users.nis = @nis,
+                    users.kelas_id = @kelas_id,
+                    users.jenis_kelamin = @jenis_kelamin,
+                    users.tanggal_lahir = @tgl_lahir,
+                    users.nama_ayah = @nama_ayah,
+                    users.nama_ibu = @nama_ibu,
+                    users.alamat = @alamat,
+                    users.updated_at = CURRENT_TIMESTAMP
+                WHERE users.nama_pengguna = @old_username
+                AND roles.nama = 'santri'
+                AND roles.deleted_at IS NULL;
             "
 
             Dim cmd As New MySqlCommand(query, conn)

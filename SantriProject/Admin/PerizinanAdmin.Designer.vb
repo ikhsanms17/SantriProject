@@ -29,18 +29,17 @@ Partial Class PerizinanAdmin
         Label2 = New Label()
         TableLayoutPanel3 = New TableLayoutPanel()
         DGView1 = New DataGridView()
+        TableLayoutPanel4 = New TableLayoutPanel()
+        btnTambahIzin = New Button()
+        btnKembali = New Button()
         DataGridViewTextBoxColumn51 = New DataGridViewTextBoxColumn()
         DataGridViewTextBoxColumn52 = New DataGridViewTextBoxColumn()
         DataGridViewTextBoxColumn54 = New DataGridViewTextBoxColumn()
         DataGridViewTextBoxColumn55 = New DataGridViewTextBoxColumn()
         DataGridViewTextBoxColumn56 = New DataGridViewTextBoxColumn()
         DataGridViewTextBoxColumn57 = New DataGridViewTextBoxColumn()
-        statusCombo = New DataGridViewComboBoxColumn()
         DataGridViewButtonColumn11 = New DataGridViewButtonColumn()
         DataGridViewButtonColumn12 = New DataGridViewButtonColumn()
-        TableLayoutPanel4 = New TableLayoutPanel()
-        btnTambahIzin = New Button()
-        btnKembali = New Button()
         TableLayoutPanel1.SuspendLayout()
         TableLayoutPanel2.SuspendLayout()
         TableLayoutPanel3.SuspendLayout()
@@ -134,7 +133,7 @@ Partial Class PerizinanAdmin
         DGView1.AllowUserToAddRows = False
         DGView1.AllowUserToDeleteRows = False
         DGView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DGView1.Columns.AddRange(New DataGridViewColumn() {DataGridViewTextBoxColumn51, DataGridViewTextBoxColumn52, DataGridViewTextBoxColumn54, DataGridViewTextBoxColumn55, DataGridViewTextBoxColumn56, DataGridViewTextBoxColumn57, statusCombo, DataGridViewButtonColumn11, DataGridViewButtonColumn12})
+        DGView1.Columns.AddRange(New DataGridViewColumn() {DataGridViewTextBoxColumn51, DataGridViewTextBoxColumn52, DataGridViewTextBoxColumn54, DataGridViewTextBoxColumn55, DataGridViewTextBoxColumn56, DataGridViewTextBoxColumn57, DataGridViewButtonColumn11, DataGridViewButtonColumn12})
         DGView1.Dock = DockStyle.Fill
         DGView1.Location = New Point(3, 3)
         DGView1.Name = "DGView1"
@@ -142,6 +141,43 @@ Partial Class PerizinanAdmin
         DGView1.RowHeadersVisible = False
         DGView1.Size = New Size(740, 320)
         DGView1.TabIndex = 10
+        ' 
+        ' TableLayoutPanel4
+        ' 
+        TableLayoutPanel4.ColumnCount = 3
+        TableLayoutPanel4.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 15F))
+        TableLayoutPanel4.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 70F))
+        TableLayoutPanel4.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 15F))
+        TableLayoutPanel4.Controls.Add(btnTambahIzin, 2, 0)
+        TableLayoutPanel4.Controls.Add(btnKembali, 0, 0)
+        TableLayoutPanel4.Dock = DockStyle.Fill
+        TableLayoutPanel4.Location = New Point(3, 329)
+        TableLayoutPanel4.Name = "TableLayoutPanel4"
+        TableLayoutPanel4.RowCount = 1
+        TableLayoutPanel4.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel4.Size = New Size(740, 31)
+        TableLayoutPanel4.TabIndex = 11
+        ' 
+        ' btnTambahIzin
+        ' 
+        btnTambahIzin.Dock = DockStyle.Fill
+        btnTambahIzin.Location = New Point(632, 3)
+        btnTambahIzin.Name = "btnTambahIzin"
+        btnTambahIzin.Size = New Size(105, 25)
+        btnTambahIzin.TabIndex = 10
+        btnTambahIzin.Text = "Tambah"
+        btnTambahIzin.UseVisualStyleBackColor = True
+        ' 
+        ' btnKembali
+        ' 
+        btnKembali.Dock = DockStyle.Fill
+        btnKembali.FlatStyle = FlatStyle.System
+        btnKembali.Location = New Point(3, 3)
+        btnKembali.Name = "btnKembali"
+        btnKembali.Size = New Size(105, 25)
+        btnKembali.TabIndex = 7
+        btnKembali.Text = "Kembali"
+        btnKembali.UseVisualStyleBackColor = True
         ' 
         ' DataGridViewTextBoxColumn51
         ' 
@@ -188,15 +224,6 @@ Partial Class PerizinanAdmin
         DataGridViewTextBoxColumn57.ReadOnly = True
         DataGridViewTextBoxColumn57.Width = 110
         ' 
-        ' statusCombo
-        ' 
-        statusCombo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        statusCombo.HeaderText = "Status Izin"
-        statusCombo.Name = "statusCombo"
-        statusCombo.ReadOnly = True
-        statusCombo.Resizable = DataGridViewTriState.True
-        statusCombo.SortMode = DataGridViewColumnSortMode.Automatic
-        ' 
         ' DataGridViewButtonColumn11
         ' 
         DataGridViewButtonColumn11.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
@@ -216,43 +243,6 @@ Partial Class PerizinanAdmin
         DataGridViewButtonColumn12.Text = ""
         DataGridViewButtonColumn12.UseColumnTextForButtonValue = True
         DataGridViewButtonColumn12.Width = 47
-        ' 
-        ' TableLayoutPanel4
-        ' 
-        TableLayoutPanel4.ColumnCount = 3
-        TableLayoutPanel4.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 15F))
-        TableLayoutPanel4.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 70F))
-        TableLayoutPanel4.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 15F))
-        TableLayoutPanel4.Controls.Add(btnTambahIzin, 2, 0)
-        TableLayoutPanel4.Controls.Add(btnKembali, 0, 0)
-        TableLayoutPanel4.Dock = DockStyle.Fill
-        TableLayoutPanel4.Location = New Point(3, 329)
-        TableLayoutPanel4.Name = "TableLayoutPanel4"
-        TableLayoutPanel4.RowCount = 1
-        TableLayoutPanel4.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
-        TableLayoutPanel4.Size = New Size(740, 31)
-        TableLayoutPanel4.TabIndex = 11
-        ' 
-        ' btnTambahIzin
-        ' 
-        btnTambahIzin.Dock = DockStyle.Fill
-        btnTambahIzin.Location = New Point(632, 3)
-        btnTambahIzin.Name = "btnTambahIzin"
-        btnTambahIzin.Size = New Size(105, 25)
-        btnTambahIzin.TabIndex = 10
-        btnTambahIzin.Text = "Tambah"
-        btnTambahIzin.UseVisualStyleBackColor = True
-        ' 
-        ' btnKembali
-        ' 
-        btnKembali.Dock = DockStyle.Fill
-        btnKembali.FlatStyle = FlatStyle.System
-        btnKembali.Location = New Point(3, 3)
-        btnKembali.Name = "btnKembali"
-        btnKembali.Size = New Size(105, 25)
-        btnKembali.TabIndex = 7
-        btnKembali.Text = "Kembali"
-        btnKembali.UseVisualStyleBackColor = True
         ' 
         ' PerizinanAdmin
         ' 

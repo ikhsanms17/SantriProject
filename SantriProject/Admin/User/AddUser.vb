@@ -21,6 +21,29 @@ Public Class AddUser
 
         LoadKelas(cmbKelas)
     End Sub
+
+    Private Sub LoadKelas(cmb_kelas As ComboBox)
+        Try
+            If conn.State = ConnectionState.Closed Then
+                conn.Open()
+            End If
+
+            Dim cmd As New MySqlCommand("SELECT id, nama FROM kelas ORDER BY id ASC", conn)
+            Dim adapter As New MySqlDataAdapter(cmd)
+            Dim dt As New DataTable()
+
+            adapter.Fill(dt)
+
+            cmb_kelas.DataSource = dt
+            cmb_kelas.DisplayMember = "nama"
+            cmb_kelas.ValueMember = "id"
+
+        Catch ex As Exception
+            MsgBox("Gagal load data kelas: " & ex.Message)
+        Finally
+            Database.CloseConnection(conn)
+        End Try
+    End Sub
     Private Sub BtnKembali_Click(sender As Object, e As EventArgs) Handles btnKembali.Click
         Dim result As DialogResult = MessageBox.Show("Yakin untuk kembali? Data saat ini tidak akan disimpan.", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
@@ -30,7 +53,6 @@ Public Class AddUser
             Me.Close()
         End If
     End Sub
-
 
     Private Sub BtnSimpan_Click(sender As Object, e As EventArgs) Handles btnSimpan.Click
         Dim nama As String = txtNama.Text.Trim()

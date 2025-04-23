@@ -75,7 +75,7 @@ Partial Class UpdatePetugas
         Label15.Name = "Label15"
         Label15.Size = New Size(746, 40)
         Label15.TabIndex = 6
-        Label15.Text = "TAMBAH DATA PETUGAS"
+        Label15.Text = "UBAH DATA PETUGAS"
         Label15.TextAlign = ContentAlignment.TopCenter
         ' 
         ' TableLayoutPanel2

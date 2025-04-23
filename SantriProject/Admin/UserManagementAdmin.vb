@@ -51,6 +51,8 @@ Public Class UserManagementAdmin
             DGView1.Columns.Add("alamat", "Alamat")
             DGView1.Columns("alamat").AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill ' Biar alamat bisa lebih lebar
 
+            DGView1.Columns.Add("saldo", "Saldo")
+            DGView1.Columns("saldo").AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill ' Biar alamat bisa lebih lebar
             ' Tambah tombol Edit
             Dim btnEditUser As New DataGridViewButtonColumn()
             btnEditUser.Name = "btnEditUser"
@@ -115,6 +117,8 @@ Public Class UserManagementAdmin
                                 userData("nama_ayah") = DGView1.Rows(e.RowIndex).Cells("nama_ayah").Value.ToString
                                 userData("nama_ibu") = DGView1.Rows(e.RowIndex).Cells("nama_ibu").Value.ToString
                                 userData("alamat") = DGView1.Rows(e.RowIndex).Cells("alamat").Value.ToString
+                                userData("saldo") = DGView1.Rows(e.RowIndex).Cells("saldo").Value.ToString
+
 
                                 ' Buka form sebagai MDI child
                                 Dim formUpdate As New UpdateUser()
@@ -151,45 +155,41 @@ Public Class UserManagementAdmin
                 conn.Open()
             End If
 
-            ' Jika keyword kosong, tampilkan semua user
             If String.IsNullOrWhiteSpace(keyword) Then
                 ShowUser(DGView1)
                 Return
             End If
 
             Dim query As String = "
-                SELECT u.*, k.nama AS kelas_nama
-                FROM users u
-                JOIN user_role ur ON u.id = ur.user_id
-                JOIN roles r ON ur.role_id = r.id
-                LEFT JOIN kelas k ON u.kelas_id = k.id
-                WHERE r.nama = 'santri' AND u.deleted_at IS NULL
-                AND (nama LIKE @keyword OR nama_pengguna LIKE @keyword)
-            "
+                        SELECT u.*, k.nama AS kelas_nama
+                        FROM users u
+                        JOIN user_role ur ON u.id = ur.user_id
+                        JOIN roles r ON ur.role_id = r.id
+                        LEFT JOIN kelas k ON u.kelas_id = k.id
+                        WHERE r.nama = 'santri' AND u.deleted_at IS NULL
+                        AND (u.nama LIKE @keyword OR u.nama_pengguna LIKE @keyword)
+                    "
 
             Dim cmd As New MySqlCommand(query, conn)
             cmd.Parameters.AddWithValue("@keyword", "%" & keyword & "%")
 
             Dim dr As MySqlDataReader = cmd.ExecuteReader()
-
-            ' Bersihkan baris sebelumnya
             DGView1.Rows.Clear()
 
-            ' Tambahkan baris hasil pencarian
             While dr.Read
                 DGView1.Rows.Add(
-                    dr("nama"),
-                    dr("nama_pengguna"),
-                    dr("email"),
-                    dr("nis"),
-                    dr("kelas_nama"),
-                    dr("jenis_kelamin"),
-                    Convert.ToDateTime(dr("tanggal_lahir")).ToString("dd-MM-yyyy"),
-                    dr("nama_ayah"),
-                    dr("nama_ibu"),
-                    dr("alamat"),
-                    Nothing, Nothing
-                )
+                        dr("nama"),
+                        dr("nama_pengguna"),
+                        dr("email"),
+                        dr("nis"),
+                        dr("kelas_nama"),
+                        dr("jenis_kelamin"),
+                        dr("tanggal_lahir"),
+                        dr("nama_ayah"),
+                        dr("nama_ibu"),
+                        dr("alamat"),
+                        Nothing, Nothing
+                    )
             End While
 
             dr.Close()
@@ -200,6 +200,7 @@ Public Class UserManagementAdmin
             Database.CloseConnection(conn)
         End Try
     End Sub
+
 
     Private Sub btnKembali_Click(sender As Object, e As EventArgs) Handles btnKembali.Click
         Dim parentForm = CType(Me.MdiParent, Form1)
@@ -220,31 +221,58 @@ Public Class UserManagementAdmin
             dgv.Rows.Clear()
 
             Dim query As String = "
-            SELECT u.*, k.nama AS kelas_nama
-            FROM users u
-            JOIN user_role ur ON u.id = ur.user_id
-            JOIN roles r ON ur.role_id = r.id
-            LEFT JOIN kelas k ON u.kelas_id = k.id
-            WHERE r.nama = 'santri' AND u.deleted_at IS NULL
-        "
+                   SELECT 
+                        u.id,
+                        u.nama,
+                        u.nama_pengguna,
+                        u.email,
+                        u.nis,
+                        u.kelas_id,
+                        k.nama AS kelas_nama,
+                        u.jenis_kelamin,
+                        u.tanggal_lahir,
+                        u.nama_ayah,
+                        u.nama_ibu,
+                        u.alamat,
+                        COALESCE(SUM(CASE WHEN dt.type = 'pemasukan' THEN dt.jumlah ELSE -dt.jumlah END), 0) AS saldo
+                    FROM 
+                        users u
+                    JOIN 
+                        user_role ur ON u.id = ur.user_id
+                    JOIN 
+                        roles r ON ur.role_id = r.id
+                    LEFT JOIN 
+                        kelas k ON u.kelas_id = k.id
+                    LEFT JOIN 
+                        transaksi t ON u.id = t.pengguna_id
+                    LEFT JOIN 
+                        detail_transaksi dt ON t.id = dt.transaksi_id
+                    WHERE 
+                        r.nama = 'santri' 
+                        AND u.deleted_at IS NULL
+                    GROUP BY  
+                        u.id
+    
+                "
 
             Dim cmd As New MySqlCommand(query, conn)
             Dim dr As MySqlDataReader = cmd.ExecuteReader()
 
             While dr.Read
                 dgv.Rows.Add(
-                dr("nama"),
-                dr("nama_pengguna"),
-                dr("email"),
-                dr("nis"),
-                dr("kelas_nama"),
-                dr("jenis_kelamin"),
-                dr("tanggal_lahir"),
-                dr("nama_ayah"),
-                dr("nama_ibu"),
-                dr("alamat"),
-                Nothing, Nothing
-            )
+                        dr("nama"),
+                        dr("nama_pengguna"),
+                        dr("email"),
+                        dr("nis"),
+                        dr("kelas_nama"),
+                        dr("jenis_kelamin"),
+                        dr("tanggal_lahir"),
+                        dr("nama_ayah"),
+                        dr("nama_ibu"),
+                        dr("alamat"),
+                        dr("saldo"),
+                        Nothing, Nothing
+                    )
             End While
 
             dr.Close()
@@ -264,12 +292,12 @@ Public Class UserManagementAdmin
 
             ' Cek apakah user adalah santri
             Dim checkQuery As String = "
-            SELECT u.id 
-            FROM users u
-            JOIN user_role ur ON u.id = ur.user_id
-            JOIN roles r ON ur.role_id = r.id
-            WHERE u.nama = @nama AND r.nama = 'santri' AND u.deleted_at IS NULL
-        "
+                    SELECT u.id 
+                    FROM users u
+                    JOIN user_role ur ON u.id = ur.user_id
+                    JOIN roles r ON ur.role_id = r.id
+                    WHERE u.nama = @nama AND r.nama = 'santri' AND u.deleted_at IS NULL
+                "
 
             Dim checkCmd As New MySqlCommand(checkQuery, conn)
             checkCmd.Parameters.AddWithValue("@nama", nama)

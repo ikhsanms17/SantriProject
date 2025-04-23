@@ -1,4 +1,5 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+﻿
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class DashboardAdmin
     Inherits System.Windows.Forms.Form
 
@@ -30,7 +31,7 @@ Partial Class DashboardAdmin
         btnKembali = New Button()
         TableLayoutPanel2 = New TableLayoutPanel()
         PieChartSaldo = New LiveChartsCore.SkiaSharpView.WinForms.PieChart()
-        ChartKeuangan = New LiveChartsCore.SkiaSharpView.WinForms.CartesianChart()
+        ChartSantri = New LiveChartsCore.SkiaSharpView.WinForms.CartesianChart()
         TableLayoutPanel6 = New TableLayoutPanel()
         Label3 = New Label()
         Label7 = New Label()
@@ -63,26 +64,26 @@ Partial Class DashboardAdmin
         ' TableLayoutPanel1
         ' 
         TableLayoutPanel1.ColumnCount = 3
-        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 3F))
-        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 94F))
-        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 3F))
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 3.0F))
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 94.0F))
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 3.0F))
         TableLayoutPanel1.Controls.Add(TableLayoutPanel3, 1, 2)
         TableLayoutPanel1.Controls.Add(Label1, 1, 1)
         TableLayoutPanel1.Dock = DockStyle.Fill
         TableLayoutPanel1.Location = New Point(0, 0)
         TableLayoutPanel1.Name = "TableLayoutPanel1"
         TableLayoutPanel1.RowCount = 4
-        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 3F))
-        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 12F))
-        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 82F))
-        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 3F))
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 3.0F))
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 12.0F))
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 82.0F))
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 3.0F))
         TableLayoutPanel1.Size = New Size(800, 450)
         TableLayoutPanel1.TabIndex = 2
         ' 
         ' TableLayoutPanel3
         ' 
         TableLayoutPanel3.ColumnCount = 1
-        TableLayoutPanel3.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
+        TableLayoutPanel3.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100.0F))
         TableLayoutPanel3.Controls.Add(TableLayoutPanel7, 0, 2)
         TableLayoutPanel3.Controls.Add(TableLayoutPanel2, 0, 1)
         TableLayoutPanel3.Controls.Add(TableLayoutPanel6, 0, 0)
@@ -90,9 +91,9 @@ Partial Class DashboardAdmin
         TableLayoutPanel3.Location = New Point(27, 70)
         TableLayoutPanel3.Name = "TableLayoutPanel3"
         TableLayoutPanel3.RowCount = 3
-        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 30F))
-        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 60F))
-        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 10F))
+        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 30.0F))
+        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 60.0F))
+        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 10.0F))
         TableLayoutPanel3.Size = New Size(746, 363)
         TableLayoutPanel3.TabIndex = 10
         ' 
@@ -101,14 +102,14 @@ Partial Class DashboardAdmin
         TableLayoutPanel7.ColumnCount = 3
         TableLayoutPanel7.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 13.9189186F))
         TableLayoutPanel7.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 70.9459457F))
-        TableLayoutPanel7.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 15F))
+        TableLayoutPanel7.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 15.0F))
         TableLayoutPanel7.Controls.Add(btnKembali, 0, 0)
         TableLayoutPanel7.Dock = DockStyle.Fill
         TableLayoutPanel7.Location = New Point(3, 328)
         TableLayoutPanel7.Name = "TableLayoutPanel7"
         TableLayoutPanel7.RowCount = 1
-        TableLayoutPanel7.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
-        TableLayoutPanel7.RowStyles.Add(New RowStyle(SizeType.Absolute, 20F))
+        TableLayoutPanel7.RowStyles.Add(New RowStyle(SizeType.Percent, 100.0F))
+        TableLayoutPanel7.RowStyles.Add(New RowStyle(SizeType.Absolute, 20.0F))
         TableLayoutPanel7.Size = New Size(740, 32)
         TableLayoutPanel7.TabIndex = 14
         ' 
@@ -127,15 +128,15 @@ Partial Class DashboardAdmin
         ' 
         TableLayoutPanel2.BackgroundImageLayout = ImageLayout.Zoom
         TableLayoutPanel2.ColumnCount = 2
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
-        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50.0F))
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50.0F))
         TableLayoutPanel2.Controls.Add(PieChartSaldo, 1, 0)
-        TableLayoutPanel2.Controls.Add(ChartKeuangan, 0, 0)
+        TableLayoutPanel2.Controls.Add(ChartSantri, 0, 0)
         TableLayoutPanel2.Dock = DockStyle.Fill
         TableLayoutPanel2.Location = New Point(3, 111)
         TableLayoutPanel2.Name = "TableLayoutPanel2"
         TableLayoutPanel2.RowCount = 1
-        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 50.0F))
         TableLayoutPanel2.Size = New Size(740, 211)
         TableLayoutPanel2.TabIndex = 15
         ' 
@@ -145,7 +146,7 @@ Partial Class DashboardAdmin
         PieChartSaldo.InitialRotation = 0R
         PieChartSaldo.IsClockwise = True
         PieChartSaldo.Location = New Point(373, 3)
-        PieChartSaldo.MaxAngle = 360R
+        PieChartSaldo.MaxAngle = 360.0R
         PieChartSaldo.MaxValue = Nothing
         PieChartSaldo.MinValue = 0R
         PieChartSaldo.Name = "PieChartSaldo"
@@ -153,13 +154,13 @@ Partial Class DashboardAdmin
         PieChartSaldo.TabIndex = 0
         PieChartSaldo.Total = Nothing
         ' 
-        ' ChartKeuangan
+        ' ChartSantri
         ' 
-        ChartKeuangan.Dock = DockStyle.Fill
-        ChartKeuangan.Location = New Point(3, 3)
-        ChartKeuangan.Name = "ChartKeuangan"
-        ChartKeuangan.Size = New Size(364, 205)
-        ChartKeuangan.TabIndex = 1
+        ChartSantri.Dock = DockStyle.Fill
+        ChartSantri.Location = New Point(3, 3)
+        ChartSantri.Name = "ChartSantri"
+        ChartSantri.Size = New Size(364, 205)
+        ChartSantri.TabIndex = 1
         ' 
         ' TableLayoutPanel6
         ' 
@@ -181,16 +182,16 @@ Partial Class DashboardAdmin
         TableLayoutPanel6.Location = New Point(3, 3)
         TableLayoutPanel6.Name = "TableLayoutPanel6"
         TableLayoutPanel6.RowCount = 3
-        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 17F))
-        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 80F))
-        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 3F))
+        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 17.0F))
+        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 80.0F))
+        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 3.0F))
         TableLayoutPanel6.Size = New Size(740, 102)
         TableLayoutPanel6.TabIndex = 16
         ' 
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        Label3.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
         Label3.Location = New Point(23, 0)
         Label3.Name = "Label3"
         Label3.Size = New Size(89, 15)
@@ -200,7 +201,7 @@ Partial Class DashboardAdmin
         ' Label7
         ' 
         Label7.AutoSize = True
-        Label7.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        Label7.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
         Label7.Location = New Point(501, 0)
         Label7.Name = "Label7"
         Label7.Size = New Size(99, 15)
@@ -210,7 +211,7 @@ Partial Class DashboardAdmin
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        Label5.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
         Label5.Location = New Point(262, 0)
         Label5.Name = "Label5"
         Label5.Size = New Size(85, 15)
@@ -227,7 +228,6 @@ Partial Class DashboardAdmin
         labelTotalSantri.Name = "labelTotalSantri"
         labelTotalSantri.Size = New Size(213, 81)
         labelTotalSantri.TabIndex = 23
-        labelTotalSantri.Text = "TEST"
         labelTotalSantri.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' labelTotalSaldo
@@ -240,7 +240,6 @@ Partial Class DashboardAdmin
         labelTotalSaldo.Name = "labelTotalSaldo"
         labelTotalSaldo.Size = New Size(213, 81)
         labelTotalSaldo.TabIndex = 24
-        labelTotalSaldo.Text = "TEST"
         labelTotalSaldo.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' labelTotalPetugas
@@ -253,14 +252,13 @@ Partial Class DashboardAdmin
         labelTotalPetugas.Name = "labelTotalPetugas"
         labelTotalPetugas.Size = New Size(213, 81)
         labelTotalPetugas.TabIndex = 25
-        labelTotalPetugas.Text = "TEST"
         labelTotalPetugas.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
         Label1.Dock = DockStyle.Fill
-        Label1.Font = New Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label1.Font = New Font("Segoe UI", 18.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.Location = New Point(27, 13)
         Label1.Name = "Label1"
         Label1.Size = New Size(746, 54)
@@ -270,7 +268,7 @@ Partial Class DashboardAdmin
         ' 
         ' DashboardAdmin
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.PapayaWhip
         ClientSize = New Size(800, 450)
@@ -296,7 +294,7 @@ Partial Class DashboardAdmin
     Friend WithEvents btnKembali As Button
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents PieChartSaldo As LiveChartsCore.SkiaSharpView.WinForms.PieChart
-    Friend WithEvents ChartKeuangan As LiveChartsCore.SkiaSharpView.WinForms.CartesianChart
+    Friend WithEvents ChartSantri As LiveChartsCore.SkiaSharpView.WinForms.CartesianChart
     Friend WithEvents TableLayoutPanel6 As TableLayoutPanel
     Friend WithEvents Label1 As Label
     Friend WithEvents Label3 As Label

@@ -26,17 +26,23 @@ Partial Class AddPerizinan
         Label15 = New Label()
         TableLayoutPanel2 = New TableLayoutPanel()
         Label6 = New Label()
-        Label9 = New Label()
+        Label4 = New Label()
+        Label11 = New Label()
+        Label12 = New Label()
         Label5 = New Label()
-        Label7 = New Label()
         Label3 = New Label()
-        dtpBatasIzin = New DateTimePicker()
-        txt_nama_penjemput = New TextBox()
-        dtpIzin = New DateTimePicker()
-        dtpDatang = New DateTimePicker()
+        Label8 = New Label()
+        Label7 = New Label()
         BtnKembali = New Button()
         BtnSimpan = New Button()
+        txtKeperluan = New TextBox()
+        txtAlamatTujuan = New TextBox()
+        txt_nama_penjemput = New TextBox()
+        txtHubungan = New TextBox()
         cmbUser = New ComboBox()
+        dtpIzin = New DateTimePicker()
+        dtpBatasIzin = New DateTimePicker()
+        dtpDatang = New DateTimePicker()
         TableLayoutPanel1.SuspendLayout()
         TableLayoutPanel2.SuspendLayout()
         SuspendLayout()
@@ -70,41 +76,49 @@ Partial Class AddPerizinan
         Label15.Size = New Size(746, 40)
         Label15.TabIndex = 6
         Label15.Text = "TAMBAH PERIZINAN"
-        Label15.TextAlign = ContentAlignment.MiddleCenter
+        Label15.TextAlign = ContentAlignment.TopCenter
         ' 
         ' TableLayoutPanel2
         ' 
         TableLayoutPanel2.ColumnCount = 2
         TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
         TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
-        TableLayoutPanel2.Controls.Add(Label6, 0, 6)
-        TableLayoutPanel2.Controls.Add(Label9, 0, 4)
-        TableLayoutPanel2.Controls.Add(Label5, 1, 2)
-        TableLayoutPanel2.Controls.Add(Label7, 1, 4)
-        TableLayoutPanel2.Controls.Add(Label3, 0, 2)
-        TableLayoutPanel2.Controls.Add(dtpBatasIzin, 1, 5)
-        TableLayoutPanel2.Controls.Add(txt_nama_penjemput, 1, 3)
-        TableLayoutPanel2.Controls.Add(dtpIzin, 0, 5)
-        TableLayoutPanel2.Controls.Add(dtpDatang, 0, 7)
-        TableLayoutPanel2.Controls.Add(BtnKembali, 0, 9)
-        TableLayoutPanel2.Controls.Add(BtnSimpan, 1, 9)
-        TableLayoutPanel2.Controls.Add(cmbUser, 0, 3)
+        TableLayoutPanel2.Controls.Add(Label6, 1, 5)
+        TableLayoutPanel2.Controls.Add(Label4, 0, 5)
+        TableLayoutPanel2.Controls.Add(Label11, 0, 8)
+        TableLayoutPanel2.Controls.Add(Label12, 1, 8)
+        TableLayoutPanel2.Controls.Add(Label5, 1, 1)
+        TableLayoutPanel2.Controls.Add(Label3, 0, 1)
+        TableLayoutPanel2.Controls.Add(Label8, 1, 3)
+        TableLayoutPanel2.Controls.Add(Label7, 0, 3)
+        TableLayoutPanel2.Controls.Add(BtnKembali, 0, 11)
+        TableLayoutPanel2.Controls.Add(BtnSimpan, 1, 11)
+        TableLayoutPanel2.Controls.Add(txtKeperluan, 0, 7)
+        TableLayoutPanel2.Controls.Add(txtAlamatTujuan, 1, 7)
+        TableLayoutPanel2.Controls.Add(txt_nama_penjemput, 0, 4)
+        TableLayoutPanel2.Controls.Add(txtHubungan, 1, 4)
+        TableLayoutPanel2.Controls.Add(cmbUser, 0, 2)
+        TableLayoutPanel2.Controls.Add(dtpIzin, 1, 2)
+        TableLayoutPanel2.Controls.Add(dtpBatasIzin, 1, 9)
+        TableLayoutPanel2.Controls.Add(dtpDatang, 0, 9)
         TableLayoutPanel2.Dock = DockStyle.Fill
         TableLayoutPanel2.Location = New Point(27, 56)
         TableLayoutPanel2.Name = "TableLayoutPanel2"
-        TableLayoutPanel2.RowCount = 12
-        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 6.25F))
-        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 6.25F))
-        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 6.25F))
-        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 6.25F))
-        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 6.25F))
-        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 6.25F))
-        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 6.25F))
-        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 6.25F))
-        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 6.25F))
-        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 6.25F))
-        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 6.25F))
-        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 6.25F))
+        TableLayoutPanel2.RowCount = 14
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 7.14396429F))
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 7.14396524F))
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 7.14396524F))
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 7.14396524F))
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 7.14396524F))
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 7.14396524F))
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 0.100015514F))
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 14.1821995F))
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 7.14396524F))
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 7.14396524F))
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 7.14396524F))
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 10.0009813F))
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 5.71056032F))
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 5.71056032F))
         TableLayoutPanel2.Size = New Size(746, 376)
         TableLayoutPanel2.TabIndex = 0
         ' 
@@ -113,110 +127,169 @@ Partial Class AddPerizinan
         Label6.AutoSize = True
         Label6.Dock = DockStyle.Bottom
         Label6.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
-        Label6.Location = New Point(3, 202)
+        Label6.Location = New Point(376, 141)
         Label6.Name = "Label6"
         Label6.Size = New Size(367, 15)
-        Label6.TabIndex = 74
-        Label6.Text = "Tanggal Datang Kembali"
+        Label6.TabIndex = 114
+        Label6.Text = "Alamat Tujuan"
         ' 
-        ' Label9
+        ' Label4
         ' 
-        Label9.AutoSize = True
-        Label9.Dock = DockStyle.Bottom
-        Label9.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
-        Label9.Location = New Point(3, 140)
-        Label9.Name = "Label9"
-        Label9.Size = New Size(367, 15)
-        Label9.TabIndex = 73
-        Label9.Text = "Tanggal Izin"
+        Label4.AutoSize = True
+        Label4.Dock = DockStyle.Bottom
+        Label4.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        Label4.Location = New Point(3, 141)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(367, 15)
+        Label4.TabIndex = 113
+        Label4.Text = "Keperluan"
+        ' 
+        ' Label11
+        ' 
+        Label11.AutoSize = True
+        Label11.Dock = DockStyle.Bottom
+        Label11.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        Label11.Location = New Point(3, 220)
+        Label11.Name = "Label11"
+        Label11.Size = New Size(367, 15)
+        Label11.TabIndex = 110
+        Label11.Text = "Tanggal Batas Izin"
+        ' 
+        ' Label12
+        ' 
+        Label12.AutoSize = True
+        Label12.Dock = DockStyle.Bottom
+        Label12.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        Label12.Location = New Point(376, 220)
+        Label12.Name = "Label12"
+        Label12.Size = New Size(367, 15)
+        Label12.TabIndex = 109
+        Label12.Text = "Tanggal Datang Kembali"
         ' 
         ' Label5
         ' 
         Label5.AutoSize = True
         Label5.Dock = DockStyle.Bottom
         Label5.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
-        Label5.Location = New Point(376, 78)
+        Label5.Location = New Point(376, 37)
         Label5.Name = "Label5"
         Label5.Size = New Size(367, 15)
-        Label5.TabIndex = 68
-        Label5.Text = "Nama Penjemput"
-        ' 
-        ' Label7
-        ' 
-        Label7.AutoSize = True
-        Label7.Dock = DockStyle.Bottom
-        Label7.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
-        Label7.Location = New Point(376, 140)
-        Label7.Name = "Label7"
-        Label7.Size = New Size(367, 15)
-        Label7.TabIndex = 67
-        Label7.Text = "Tanggal Batas Izin"
+        Label5.TabIndex = 104
+        Label5.Text = "Tanggal Izin"
         ' 
         ' Label3
         ' 
         Label3.AutoSize = True
         Label3.Dock = DockStyle.Bottom
         Label3.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
-        Label3.Location = New Point(3, 78)
+        Label3.Location = New Point(3, 37)
         Label3.Name = "Label3"
         Label3.Size = New Size(367, 15)
-        Label3.TabIndex = 62
+        Label3.TabIndex = 103
         Label3.Text = "Nama Lengkap"
         ' 
-        ' dtpBatasIzin
+        ' Label8
         ' 
-        dtpBatasIzin.Location = New Point(376, 158)
-        dtpBatasIzin.Name = "dtpBatasIzin"
-        dtpBatasIzin.Size = New Size(200, 23)
-        dtpBatasIzin.TabIndex = 52
+        Label8.AutoSize = True
+        Label8.Dock = DockStyle.Bottom
+        Label8.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        Label8.Location = New Point(376, 89)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(367, 15)
+        Label8.TabIndex = 102
+        Label8.Text = "Hubungan"
         ' 
-        ' txt_nama_penjemput
+        ' Label7
         ' 
-        txt_nama_penjemput.Location = New Point(376, 96)
-        txt_nama_penjemput.Name = "txt_nama_penjemput"
-        txt_nama_penjemput.PlaceholderText = "Nama Penjemput"
-        txt_nama_penjemput.Size = New Size(200, 23)
-        txt_nama_penjemput.TabIndex = 50
-        ' 
-        ' dtpIzin
-        ' 
-        dtpIzin.Location = New Point(3, 158)
-        dtpIzin.Name = "dtpIzin"
-        dtpIzin.Size = New Size(200, 23)
-        dtpIzin.TabIndex = 30
-        ' 
-        ' dtpDatang
-        ' 
-        dtpDatang.Location = New Point(3, 220)
-        dtpDatang.Name = "dtpDatang"
-        dtpDatang.Size = New Size(200, 23)
-        dtpDatang.TabIndex = 32
+        Label7.AutoSize = True
+        Label7.Dock = DockStyle.Bottom
+        Label7.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        Label7.Location = New Point(3, 89)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(367, 15)
+        Label7.TabIndex = 101
+        Label7.Text = "Nama Penjemput"
         ' 
         ' BtnKembali
         ' 
-        BtnKembali.Location = New Point(3, 282)
+        BtnKembali.Location = New Point(3, 290)
         BtnKembali.Name = "BtnKembali"
-        BtnKembali.Size = New Size(75, 23)
+        BtnKembali.Size = New Size(75, 20)
         BtnKembali.TabIndex = 15
         BtnKembali.Text = "Kembali"
         BtnKembali.UseVisualStyleBackColor = True
         ' 
         ' BtnSimpan
         ' 
-        BtnSimpan.Location = New Point(376, 282)
+        BtnSimpan.Location = New Point(376, 290)
         BtnSimpan.Name = "BtnSimpan"
-        BtnSimpan.Size = New Size(75, 23)
+        BtnSimpan.Size = New Size(75, 20)
         BtnSimpan.TabIndex = 14
         BtnSimpan.Text = "Simpan"
         BtnSimpan.UseVisualStyleBackColor = True
         ' 
+        ' txtKeperluan
+        ' 
+        txtKeperluan.Location = New Point(3, 159)
+        txtKeperluan.Multiline = True
+        txtKeperluan.Name = "txtKeperluan"
+        txtKeperluan.ScrollBars = ScrollBars.Vertical
+        txtKeperluan.Size = New Size(200, 47)
+        txtKeperluan.TabIndex = 89
+        ' 
+        ' txtAlamatTujuan
+        ' 
+        txtAlamatTujuan.Location = New Point(376, 159)
+        txtAlamatTujuan.Multiline = True
+        txtAlamatTujuan.Name = "txtAlamatTujuan"
+        txtAlamatTujuan.ScrollBars = ScrollBars.Vertical
+        txtAlamatTujuan.Size = New Size(200, 47)
+        txtAlamatTujuan.TabIndex = 87
+        ' 
+        ' txt_nama_penjemput
+        ' 
+        txt_nama_penjemput.Location = New Point(3, 107)
+        txt_nama_penjemput.Name = "txt_nama_penjemput"
+        txt_nama_penjemput.PlaceholderText = "Nama Penjemput"
+        txt_nama_penjemput.Size = New Size(200, 23)
+        txt_nama_penjemput.TabIndex = 50
+        ' 
+        ' txtHubungan
+        ' 
+        txtHubungan.Location = New Point(376, 107)
+        txtHubungan.Name = "txtHubungan"
+        txtHubungan.PlaceholderText = "Hubungan"
+        txtHubungan.Size = New Size(200, 23)
+        txtHubungan.TabIndex = 90
+        ' 
         ' cmbUser
         ' 
         cmbUser.FormattingEnabled = True
-        cmbUser.Location = New Point(3, 96)
+        cmbUser.Location = New Point(3, 55)
         cmbUser.Name = "cmbUser"
         cmbUser.Size = New Size(200, 23)
         cmbUser.TabIndex = 75
+        ' 
+        ' dtpIzin
+        ' 
+        dtpIzin.Location = New Point(376, 55)
+        dtpIzin.Name = "dtpIzin"
+        dtpIzin.Size = New Size(200, 23)
+        dtpIzin.TabIndex = 30
+        ' 
+        ' dtpBatasIzin
+        ' 
+        dtpBatasIzin.Location = New Point(376, 238)
+        dtpBatasIzin.Name = "dtpBatasIzin"
+        dtpBatasIzin.Size = New Size(200, 23)
+        dtpBatasIzin.TabIndex = 52
+        ' 
+        ' dtpDatang
+        ' 
+        dtpDatang.Location = New Point(3, 238)
+        dtpDatang.Name = "dtpDatang"
+        dtpDatang.Size = New Size(200, 23)
+        dtpDatang.TabIndex = 32
         ' 
         ' AddPerizinan
         ' 
@@ -239,15 +312,21 @@ Partial Class AddPerizinan
     Friend WithEvents Label15 As Label
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents Label6 As Label
-    Friend WithEvents Label9 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label12 As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents Label7 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents dtpBatasIzin As DateTimePicker
-    Friend WithEvents txt_nama_penjemput As TextBox
-    Friend WithEvents dtpIzin As DateTimePicker
-    Friend WithEvents dtpDatang As DateTimePicker
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label7 As Label
     Friend WithEvents BtnKembali As Button
     Friend WithEvents BtnSimpan As Button
+    Friend WithEvents txtKeperluan As TextBox
+    Friend WithEvents txtAlamatTujuan As TextBox
+    Friend WithEvents txt_nama_penjemput As TextBox
+    Friend WithEvents txtHubungan As TextBox
     Friend WithEvents cmbUser As ComboBox
+    Friend WithEvents dtpIzin As DateTimePicker
+    Friend WithEvents dtpBatasIzin As DateTimePicker
+    Friend WithEvents dtpDatang As DateTimePicker
 End Class

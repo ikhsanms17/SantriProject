@@ -43,7 +43,7 @@ Public Class Petugas
 
             ' Tambah tombol Edit
             Dim btnEditUser As New DataGridViewButtonColumn()
-            btnEditUser.Name = "btnEditPetugas"
+            btnEditUser.Name = "btnEdit"
             btnEditUser.HeaderText = ""
             btnEditUser.Text = "Edit"
             btnEditUser.UseColumnTextForButtonValue = True
@@ -51,7 +51,7 @@ Public Class Petugas
 
             ' Tambah tombol Delete
             Dim btnDeleteUser As New DataGridViewButtonColumn()
-            btnDeleteUser.Name = "btnHapusPetugas"
+            btnDeleteUser.Name = "btnHapus"
             btnDeleteUser.HeaderText = ""
             btnDeleteUser.Text = "Delete"
             btnDeleteUser.UseColumnTextForButtonValue = True
@@ -269,29 +269,67 @@ Public Class Petugas
     End Sub
 
     Private Sub btnKembali_Click(sender As Object, e As EventArgs) Handles btnKembali.Click
-
+        Dim parentForm = CType(MdiParent, Form1)
+        parentForm.OpenChildForm(MenuAdmin)
     End Sub
 
-    Public Sub LoadRoles(cmbRoles As ComboBox)
+    Private Sub btnTambahUser_Click(sender As Object, e As EventArgs) Handles btnTambahUser.Click
+        Dim parentForm = CType(MdiParent, Form1)
+        parentForm.OpenChildForm(AddPetugas)
+    End Sub
+
+    Private Sub txtSearch_TextChanged_1(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
+        Dim keyword As String = txtSearch.Text.Trim()
+
         Try
             If conn.State = ConnectionState.Closed Then
                 conn.Open()
             End If
 
-            Dim cmd As New MySqlCommand("SELECT id, nama FROM roles ORDER BY id ASC", conn)
-            Dim adapter As New MySqlDataAdapter(cmd)
-            Dim dt As New DataTable()
+            ' Jika keyword kosong, tampilkan semua user
+            If String.IsNullOrWhiteSpace(keyword) Then
+                ShowPetugas(DGView1) ' Atau ShowSantri(DGView1)
+                Return
+            End If
 
-            adapter.Fill(dt)
+            Dim query As String = "
+            SELECT u.*, k.nama AS kelas_nama, r.nama AS role
+            FROM users u
+            JOIN user_role ur ON u.id = ur.user_id
+            JOIN roles r ON ur.role_id = r.id
+            LEFT JOIN kelas k ON u.kelas_id = k.id
+            WHERE r.nama IN ('petugas', 'admin') AND u.deleted_at IS NULL
+            AND (u.nama LIKE @keyword OR u.nama_pengguna LIKE @keyword OR u.email LIKE @keyword)
+        "
 
-            cmbRoles.DataSource = dt
-            cmbRoles.DisplayMember = "nama"
-            cmbRoles.ValueMember = "id"
+            Dim cmd As New MySqlCommand(query, conn)
+            cmd.Parameters.AddWithValue("@keyword", "%" & keyword & "%")
+
+            Dim dr As MySqlDataReader = cmd.ExecuteReader()
+
+            DGView1.Rows.Clear()
+
+            While dr.Read
+                DGView1.Rows.Add(
+                    dr("nama"),
+                    dr("nama_pengguna"),
+                    dr("email"),
+                    dr("jenis_kelamin"),
+                    If(IsDBNull(dr("tanggal_lahir")), "", Convert.ToDateTime(dr("tanggal_lahir")).ToString("yyyy-MM-dd")),
+                    dr("alamat"),
+                    dr("role"),
+                    Nothing, Nothing
+                )
+            End While
+
+            dr.Close()
 
         Catch ex As Exception
-            MsgBox("Gagal load data kelas: " & ex.Message)
+            MessageBox.Show("Terjadi kesalahan saat mencari user: " & ex.Message)
         Finally
             Database.CloseConnection(conn)
         End Try
     End Sub
+
+
 End Class
