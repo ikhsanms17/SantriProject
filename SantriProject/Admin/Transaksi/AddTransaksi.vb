@@ -1,9 +1,15 @@
 ﻿Imports MySql.Data.MySqlClient
+<<<<<<< HEAD
 Imports System.IO
 
 Public Class AddTransaksi
     Private Sub AddTransaksi_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Set form agar bisa di-resize
+=======
+
+Public Class AddTransaksi
+    Private Sub AddTransaksi_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         Me.FormBorderStyle = FormBorderStyle.None
         Me.WindowState = FormWindowState.Maximized
 
@@ -11,6 +17,7 @@ Public Class AddTransaksi
         scaleY = Me.ClientSize.Height / baseHeight
 
         ResizeControls(Me, scaleX, scaleY)
+<<<<<<< HEAD
 
         ' Load Petugas and Santri data into ComboBoxes
         LoadPetugas(cmbPetugas)
@@ -27,19 +34,28 @@ Public Class AddTransaksi
             parentForm.OpenChildForm(New TransaksiAdmin)
             Close()
         End If
+=======
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
     End Sub
 
     Private Sub BtnSimpan_Click(sender As Object, e As EventArgs) Handles BtnSimpan.Click
         ' Ambil data dari form
         Dim petugas_id As String = cmbPetugas.SelectedValue.ToString()
+<<<<<<< HEAD
         Dim pengguna_id As String = cmbSantri.SelectedValue.ToString()
         Dim tanggal_transaksi As String = dtpTanggalTransaksi.Value.ToString("yyyy-MM-dd")
         Dim type_pembayaran As String = cmbMetode.Text.Trim()
+=======
+        Dim pengguna_id As String = cmbUser.SelectedValue.ToString()
+        Dim tanggal_transaksi As String = dtpTanggalTransaksi.ToString("yyyy-MM-dd")
+        Dim type_transaksi As String = cmbMetode.Text.Trim()
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         Dim jumlah As String = txtJumlah.Text.Trim()
         Dim type As String = cmbJenisTr.Text.Trim()
         Dim image_bukti As String = txtFilename.Text.ToString()
         Dim keterangan As String = txtKeterangan.Text.ToString()
 
+<<<<<<< HEAD
         ' Tentukan folder tujuan untuk menyimpan file
         Dim folderPath As String = Path.Combine(Application.StartupPath, "BuktiTransaksi")
 
@@ -74,14 +90,21 @@ Public Class AddTransaksi
         End If
 
         ' Koneksi database
+=======
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         Dim conn = Database.GetConnection()
         Dim no_transaksi As String = ""
 
         Try
             If conn.State = ConnectionState.Closed Then conn.Open()
 
+<<<<<<< HEAD
             ' Ambil ID terakhir + 1 untuk format no_transaksi
             Dim idQuery As String = "SELECT IFNULL(MAX(id), 0) + 1 FROM transaksi"
+=======
+            ' Ambil ID terakhir + 1 untuk format no_izin
+            Dim idQuery As String = "SELECT IFNULL(MAX(id), 0) + 1 FROM perizinan"
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
             Dim idCmd As New MySqlCommand(idQuery, conn)
             Dim nextId As Integer = Convert.ToInt32(idCmd.ExecuteScalar())
             Dim tanggalSekarang As String = DateTime.Now.ToString("yyyyMMdd")
@@ -89,6 +112,7 @@ Public Class AddTransaksi
 
             ' Konfirmasi data
             Dim konfirmasi As String = "Apakah Anda yakin ingin menyimpan data berikut?" & vbCrLf & vbCrLf &
+<<<<<<< HEAD
             "No Transaksi: " & no_transaksi & vbCrLf &
             "Petugas ID: " & petugas_id & " (" & cmbPetugas.Text & ")" & vbCrLf &
             "Santri ID: " & pengguna_id & " (" & cmbSantri.Text & ")" & vbCrLf &
@@ -98,10 +122,22 @@ Public Class AddTransaksi
             "Jenis Transaksi: " & type & vbCrLf &
             "Gambar Bukti: " & image_bukti & vbCrLf &
             "Keterangan: " & keterangan
+=======
+                "No Transaksi: " & no_transaksi & vbCrLf &
+                "Petugas ID: " & petugas_id & " (" & cmbPetugas.Text & ")" & vbCrLf &
+                "Pengguna ID: " & pengguna_id & " (" & cmbUser.Text & ")" & vbCrLf &
+                "Tanggal Transaksi: " & tanggal_transaksi & vbCrLf &
+                "Metode Transaksi: " & type_transaksi & vbCrLf &
+                "Jumlah: " & jumlah & vbCrLf &
+                "Jenis Transaksi: " & type & vbCrLf &
+                "Gambar Bukti: " & image_bukti & vbCrLf &
+                "Keterangan: " & keterangan
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
 
             Dim result As DialogResult = MessageBox.Show(konfirmasi, "Konfirmasi Simpan", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If result = DialogResult.No Then Exit Sub
 
+<<<<<<< HEAD
             ' Simpan ke tabel transaksi
             Dim queryTransaksi As String = "
             INSERT INTO transaksi (
@@ -110,10 +146,21 @@ Public Class AddTransaksi
             ) VALUES (
                 @no_transaksi, @tanggal_transaksi, @type_pembayaran, 
                 @petugas_id, @pengguna_id, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP
+=======
+            ' Simpan ke tabel perizinan
+            Dim queryTransaksi As String = "
+            INSERT INTO perizinan (
+                no_transaksi, tanggal_transaksi, type_pembayaran,
+                petugas_id, pengguna_id, created_at, updated_at
+            ) VALUES (
+                @no_transaksi, @tanggal_transaksi, @type_transaksi, 
+                @petugas_id, @pegguna_id, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
             )"
             Dim cmd1 As New MySqlCommand(queryTransaksi, conn)
             cmd1.Parameters.AddWithValue("@no_transaksi", no_transaksi)
             cmd1.Parameters.AddWithValue("@tanggal_transaksi", tanggal_transaksi)
+<<<<<<< HEAD
             cmd1.Parameters.AddWithValue("@type_pembayaran", type_pembayaran)
             cmd1.Parameters.AddWithValue("@petugas_id", petugas_id)
             cmd1.Parameters.AddWithValue("@pengguna_id", pengguna_id)
@@ -133,6 +180,22 @@ Public Class AddTransaksi
             )"
             Dim cmd2 As New MySqlCommand(queryDetail, conn)
             cmd2.Parameters.AddWithValue("@transaksi_id", transaksi_id)
+=======
+            cmd1.Parameters.AddWithValue("@type_transaksi", type_transaksi)
+            cmd1.Parameters.AddWithValue("@pengguna_id", pengguna_id)
+            cmd1.Parameters.AddWithValue("@petugas_id", petugas_id)
+            cmd1.ExecuteNonQuery()
+
+            ' Simpan ke tabel detail_perizinan
+            Dim queryDetail As String = "
+            INSERT INTO detail_perizinan (
+                no_transaksi, jumlah, type, image_bukti, keterangan, created_at, updated_at
+            ) VALUES (
+                @no_transaksi, @jumlah, @type, @image_bukti, @keterangan, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP
+            )"
+            Dim cmd2 As New MySqlCommand(queryDetail, conn)
+            cmd2.Parameters.AddWithValue("@no_transaksi", no_transaksi)
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
             cmd2.Parameters.AddWithValue("@jumlah", jumlah)
             cmd2.Parameters.AddWithValue("@type", type)
             cmd2.Parameters.AddWithValue("@image_bukti", image_bukti)
@@ -151,6 +214,7 @@ Public Class AddTransaksi
         parentForm.OpenChildForm(New TransaksiAdmin)
     End Sub
 
+<<<<<<< HEAD
     Private Sub LoadPetugas(cmbPetugas As ComboBox)
         ' Load petugas from database
         Dim conn = Database.GetConnection()
@@ -171,11 +235,36 @@ Public Class AddTransaksi
             cmbPetugas.ValueMember = "id"
         Catch ex As Exception
             MessageBox.Show("Error loading petugas: " & ex.Message)
+=======
+    Private Sub btnUpload_Click(sender As Object, e As EventArgs) Handles btnUpload.Click
+        UploadGambar(txtFilename)
+    End Sub
+
+    Private Sub LoadUser(cmbUser As ComboBox)
+        Try
+            If conn.State = ConnectionState.Closed Then
+                conn.Open()
+            End If
+
+            Dim cmd As New MySqlCommand("SELECT id, nama FROM kelas ORDER BY id ASC", conn)
+            Dim adapter As New MySqlDataAdapter(cmd)
+            Dim dt As New DataTable()
+
+            adapter.Fill(dt)
+
+            cmbUser.DataSource = dt
+            cmbUser.DisplayMember = "nama"
+            cmbUser.ValueMember = "id"
+
+        Catch ex As Exception
+            MsgBox("Gagal load data kelas: " & ex.Message)
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         Finally
             Database.CloseConnection(conn)
         End Try
     End Sub
 
+<<<<<<< HEAD
     Private Sub LoadSantri(cmbSantri As ComboBox)
         ' Load santri from database
         Dim conn = Database.GetConnection()
@@ -206,12 +295,17 @@ Public Class AddTransaksi
         cmbMetode.Items.Add("Cash")
         cmbMetode.Items.Add("Bank")
         cmbMetode.SelectedIndex = 0 ' Pilih default "Cash"
+=======
+    Private Sub LoadPetugas()
+
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
     End Sub
 
     Private Sub LoadJenisTransaksi(cmbJenisTransaksi As ComboBox)
         cmbJenisTransaksi.Items.Clear()
         cmbJenisTransaksi.Items.Add("Pemasukan")
         cmbJenisTransaksi.Items.Add("Pengeluaran")
+<<<<<<< HEAD
         cmbJenisTransaksi.SelectedIndex = 0 ' Pilih default "Pemasukan"
     End Sub
 
@@ -253,3 +347,13 @@ Public Class AddTransaksi
         End If
     End Sub
 End Class
+=======
+    End Sub
+
+    Private Sub LoadMetode(cmdMetode As ComboBox)
+        cmdMetode.Items.Clear()
+        cmdMetode.Items.Add("Cash")
+        cmdMetode.Items.Add("Bank")
+    End Sub
+End Class
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77

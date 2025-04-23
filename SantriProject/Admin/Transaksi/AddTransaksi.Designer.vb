@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+=======
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
 Partial Class AddTransaksi
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
+<<<<<<< HEAD
     <System.Diagnostics.DebuggerNonUserCode()>
+=======
+    <System.Diagnostics.DebuggerNonUserCode()> _
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +28,11 @@ Partial Class AddTransaksi
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
+<<<<<<< HEAD
     <System.Diagnostics.DebuggerStepThrough()>
+=======
+    <System.Diagnostics.DebuggerStepThrough()> _
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
     Private Sub InitializeComponent()
         TableLayoutPanel1 = New TableLayoutPanel()
         Label15 = New Label()
@@ -41,7 +53,11 @@ Partial Class AddTransaksi
         dtpTanggalTransaksi = New DateTimePicker()
         cmbMetode = New ComboBox()
         cmbPetugas = New ComboBox()
+<<<<<<< HEAD
         cmbSantri = New ComboBox()
+=======
+        cmbUser = New ComboBox()
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         TableLayoutPanel3 = New TableLayoutPanel()
         btnUpload = New Button()
         txtFilename = New TextBox()
@@ -53,19 +69,32 @@ Partial Class AddTransaksi
         ' TableLayoutPanel1
         ' 
         TableLayoutPanel1.ColumnCount = 3
+<<<<<<< HEAD
         TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 3.0F))
         TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 94.0F))
         TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 3.0F))
+=======
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 3F))
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 94F))
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 3F))
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         TableLayoutPanel1.Controls.Add(Label15, 1, 1)
         TableLayoutPanel1.Controls.Add(TableLayoutPanel2, 1, 2)
         TableLayoutPanel1.Dock = DockStyle.Fill
         TableLayoutPanel1.Location = New Point(0, 0)
         TableLayoutPanel1.Name = "TableLayoutPanel1"
         TableLayoutPanel1.RowCount = 4
+<<<<<<< HEAD
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 3.0F))
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 9.0F))
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 85.0F))
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 3.0F))
+=======
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 3F))
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 9F))
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 85F))
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 3F))
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         TableLayoutPanel1.Size = New Size(800, 450)
         TableLayoutPanel1.TabIndex = 4
         ' 
@@ -73,7 +102,11 @@ Partial Class AddTransaksi
         ' 
         Label15.AutoSize = True
         Label15.Dock = DockStyle.Fill
+<<<<<<< HEAD
         Label15.Font = New Font("Segoe UI", 18.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+=======
+        Label15.Font = New Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         Label15.Location = New Point(27, 13)
         Label15.Name = "Label15"
         Label15.Size = New Size(746, 40)
@@ -84,8 +117,13 @@ Partial Class AddTransaksi
         ' TableLayoutPanel2
         ' 
         TableLayoutPanel2.ColumnCount = 2
+<<<<<<< HEAD
         TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50.0F))
         TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50.0F))
+=======
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 50F))
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         TableLayoutPanel2.Controls.Add(Label8, 1, 2)
         TableLayoutPanel2.Controls.Add(Label7, 0, 2)
         TableLayoutPanel2.Controls.Add(Label6, 1, 4)
@@ -102,7 +140,11 @@ Partial Class AddTransaksi
         TableLayoutPanel2.Controls.Add(dtpTanggalTransaksi, 0, 5)
         TableLayoutPanel2.Controls.Add(cmbMetode, 1, 5)
         TableLayoutPanel2.Controls.Add(cmbPetugas, 0, 3)
+<<<<<<< HEAD
         TableLayoutPanel2.Controls.Add(cmbSantri, 1, 3)
+=======
+        TableLayoutPanel2.Controls.Add(cmbUser, 1, 3)
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         TableLayoutPanel2.Controls.Add(TableLayoutPanel3, 0, 9)
         TableLayoutPanel2.Dock = DockStyle.Fill
         TableLayoutPanel2.Location = New Point(27, 56)
@@ -129,7 +171,11 @@ Partial Class AddTransaksi
         ' 
         Label8.AutoSize = True
         Label8.Dock = DockStyle.Bottom
+<<<<<<< HEAD
         Label8.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+=======
+        Label8.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         Label8.Location = New Point(376, 63)
         Label8.Name = "Label8"
         Label8.Size = New Size(367, 15)
@@ -140,7 +186,11 @@ Partial Class AddTransaksi
         ' 
         Label7.AutoSize = True
         Label7.Dock = DockStyle.Bottom
+<<<<<<< HEAD
         Label7.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+=======
+        Label7.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         Label7.Location = New Point(3, 63)
         Label7.Name = "Label7"
         Label7.Size = New Size(367, 15)
@@ -151,7 +201,11 @@ Partial Class AddTransaksi
         ' 
         Label6.AutoSize = True
         Label6.Dock = DockStyle.Bottom
+<<<<<<< HEAD
         Label6.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+=======
+        Label6.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         Label6.Location = New Point(376, 115)
         Label6.Name = "Label6"
         Label6.Size = New Size(367, 15)
@@ -162,7 +216,11 @@ Partial Class AddTransaksi
         ' 
         Label4.AutoSize = True
         Label4.Dock = DockStyle.Bottom
+<<<<<<< HEAD
         Label4.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+=======
+        Label4.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         Label4.Location = New Point(3, 115)
         Label4.Name = "Label4"
         Label4.Size = New Size(367, 15)
@@ -173,7 +231,11 @@ Partial Class AddTransaksi
         ' 
         Label10.AutoSize = True
         Label10.Dock = DockStyle.Bottom
+<<<<<<< HEAD
         Label10.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+=======
+        Label10.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         Label10.Location = New Point(376, 167)
         Label10.Name = "Label10"
         Label10.Size = New Size(367, 15)
@@ -184,7 +246,11 @@ Partial Class AddTransaksi
         ' 
         Label9.AutoSize = True
         Label9.Dock = DockStyle.Bottom
+<<<<<<< HEAD
         Label9.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+=======
+        Label9.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         Label9.Location = New Point(3, 167)
         Label9.Name = "Label9"
         Label9.Size = New Size(367, 15)
@@ -195,7 +261,11 @@ Partial Class AddTransaksi
         ' 
         Label11.AutoSize = True
         Label11.Dock = DockStyle.Bottom
+<<<<<<< HEAD
         Label11.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+=======
+        Label11.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         Label11.Location = New Point(3, 219)
         Label11.Name = "Label11"
         Label11.Size = New Size(367, 15)
@@ -206,7 +276,11 @@ Partial Class AddTransaksi
         ' 
         Label12.AutoSize = True
         Label12.Dock = DockStyle.Bottom
+<<<<<<< HEAD
         Label12.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+=======
+        Label12.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         Label12.Location = New Point(376, 219)
         Label12.Name = "Label12"
         Label12.Size = New Size(367, 15)
@@ -278,6 +352,7 @@ Partial Class AddTransaksi
         cmbPetugas.Size = New Size(200, 23)
         cmbPetugas.TabIndex = 75
         ' 
+<<<<<<< HEAD
         ' cmbSantri
         ' 
         cmbSantri.FormattingEnabled = True
@@ -285,6 +360,15 @@ Partial Class AddTransaksi
         cmbSantri.Name = "cmbSantri"
         cmbSantri.Size = New Size(200, 23)
         cmbSantri.TabIndex = 115
+=======
+        ' cmbUser
+        ' 
+        cmbUser.FormattingEnabled = True
+        cmbUser.Location = New Point(376, 81)
+        cmbUser.Name = "cmbUser"
+        cmbUser.Size = New Size(200, 23)
+        cmbUser.TabIndex = 115
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         ' 
         ' TableLayoutPanel3
         ' 
@@ -298,7 +382,11 @@ Partial Class AddTransaksi
         TableLayoutPanel3.Margin = New Padding(0)
         TableLayoutPanel3.Name = "TableLayoutPanel3"
         TableLayoutPanel3.RowCount = 1
+<<<<<<< HEAD
         TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 50.0F))
+=======
+        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 50F))
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         TableLayoutPanel3.Size = New Size(373, 26)
         TableLayoutPanel3.TabIndex = 127
         ' 
@@ -321,7 +409,11 @@ Partial Class AddTransaksi
         ' 
         ' AddTransaksi
         ' 
+<<<<<<< HEAD
         AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+=======
+        AutoScaleDimensions = New SizeF(7F, 15F)
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.PapayaWhip
         ClientSize = New Size(800, 450)
@@ -347,7 +439,11 @@ Partial Class AddTransaksi
     Friend WithEvents BtnKembali As Button
     Friend WithEvents BtnSimpan As Button
     Friend WithEvents cmbPetugas As ComboBox
+<<<<<<< HEAD
     Friend WithEvents cmbSantri As ComboBox
+=======
+    Friend WithEvents cmbUser As ComboBox
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
     Friend WithEvents txtJumlah As TextBox
     Friend WithEvents dtpTanggalTransaksi As DateTimePicker
     Friend WithEvents cmbMetode As ComboBox

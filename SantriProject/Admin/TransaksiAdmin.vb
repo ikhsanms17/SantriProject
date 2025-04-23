@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿Imports LiveChartsCore.Themes
 Imports Microsoft
 Imports Microsoft.VisualBasic.ApplicationServices
@@ -7,6 +8,12 @@ Imports MySql.Data.MySqlClient
 Public Class TransaksiAdmin
     Dim isLoading As Boolean = False
 
+=======
+﻿Imports MySql.Data.MySqlClient
+
+Public Class TransaksiAdmin
+    Dim isLoading As Boolean = False
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
     Private Sub TransaksiAdmin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.FormBorderStyle = FormBorderStyle.None
         Me.WindowState = FormWindowState.Maximized
@@ -20,6 +27,7 @@ Public Class TransaksiAdmin
     End Sub
 
     Private Sub DGView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGView1.CellContentClick
+<<<<<<< HEAD
         If e.RowIndex >= 0 Then
             Dim columnName As String = DGView1.Columns(e.ColumnIndex).Name
             Dim noTransaksi As String = DGView1.Rows(e.RowIndex).Cells("no_transaksi").Value.ToString()
@@ -77,21 +85,43 @@ Public Class TransaksiAdmin
         isLoading = True
         Try
             If conn.State = ConnectionState.Closed Then conn.Open()
+=======
+
+    End Sub
+
+    Private Sub ShowTransaksi(DGView1 As DataGridView)
+        isLoading = True ' ✅ Mulai loading
+        Try
+            If conn.State = ConnectionState.Closed Then
+                conn.Open()
+            End If
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
 
             DGView1.Rows.Clear()
             DGView1.Columns.Clear()
             DGView1.AutoGenerateColumns = False
 
+<<<<<<< HEAD
             DGView1.Columns.Add("no_transaksi", "No Transaksi")
             DGView1.Columns.Add("nama_pengguna", "Nama Pengguna")
             DGView1.Columns.Add("nama_petugas", "Nama Petugas")
             DGView1.Columns.Add("tanggal_transaksi", "Tanggal Transaksi")
             DGView1.Columns.Add("type_transaksi", "Type Transaksi")
+=======
+            DGView1.Columns.Add("petugas_id", "Nama Petugas")
+            DGView1.Columns.Add("pengguna_id", "Nama Pengguna")
+            DGView1.Columns.Add("tanggal_Transaksi", "Tanggal Transaksi")
+            DGView1.Columns.Add("type_pembayaran", "Metode Pembayaran")
+            DGView1.Columns.Add("jumlah", "Jumlah Transaksi")
+            DGView1.Columns.Add("type", "Status Transaksi")
+            DGView1.Columns.Add("keterangan", "Keterangan")
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
 
             For Each col As DataGridViewColumn In DGView1.Columns
                 col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             Next
 
+<<<<<<< HEAD
             ' Add buttons for actions (Detail, Edit, Delete)
             Dim btnDetail As New DataGridViewButtonColumn()
             btnDetail.Name = "btnDetail"
@@ -103,17 +133,34 @@ Public Class TransaksiAdmin
             Dim btnEdit As New DataGridViewButtonColumn()
             btnEdit.Name = "btnEdit"
             btnEdit.HeaderText = "Edit"
+=======
+            Dim btnBukti As New DataGridViewButtonColumn()
+            btnBukti.Name = "btnBukti"
+            btnBukti.HeaderText = ""
+            btnBukti.Text = "Lihat Bukti"
+            btnBukti.UseColumnTextForButtonValue = True
+            DGView1.Columns.Add(btnBukti)
+
+            Dim btnEdit As New DataGridViewButtonColumn()
+            btnEdit.Name = "btnEdit"
+            btnEdit.HeaderText = ""
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
             btnEdit.Text = "Edit"
             btnEdit.UseColumnTextForButtonValue = True
             DGView1.Columns.Add(btnEdit)
 
             Dim btnDelete As New DataGridViewButtonColumn()
             btnDelete.Name = "btnHapus"
+<<<<<<< HEAD
             btnDelete.HeaderText = "Delete"
+=======
+            btnDelete.HeaderText = ""
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
             btnDelete.Text = "Delete"
             btnDelete.UseColumnTextForButtonValue = True
             DGView1.Columns.Add(btnDelete)
 
+<<<<<<< HEAD
             ' Style settings for DataGridView
             DGView1.DefaultCellStyle.Font = New Font("Segoe UI", 10)
             DGView1.ColumnHeadersDefaultCellStyle.Font = New Font("Segoe UI", 11, FontStyle.Bold)
@@ -131,6 +178,44 @@ Public Class TransaksiAdmin
                 DGView1.Rows(index).Cells("nama_petugas").Value = dr("nama_petugas")
                 DGView1.Rows(index).Cells("tanggal_transaksi").Value = dr("tanggal_transaksi")
                 DGView1.Rows(index).Cells("type_transaksi").Value = dr("type_pembayaran")
+=======
+            DGView1.DefaultCellStyle.Font = New Font("Segoe UI", 10)
+            DGView1.ColumnHeadersDefaultCellStyle.Font = New Font("Segoe UI", 11, FontStyle.Bold)
+
+            Dim cmd As New MySqlCommand(
+            "SELECT " &
+            "    t.no_transaksi, " &
+            "    u1.nama AS nama_pengguna, " &
+            "    u2.nama AS nama_petugas, " &
+            "    t.tanggal_transaksi, " &
+            "    t.type_pembayaran, " &
+            "    dt.jumlah, " &
+            "    dt.keterangan " &
+            "FROM " &
+            "    transaksi t " &
+            "JOIN " &
+            "    users u1 ON t.pengguna_id = u1.id " &
+            "JOIN " &
+            "    users u2 ON t.petugas_id = u2.id " &
+            "JOIN " &
+            "    detail_transaksi dt ON t.id = dt.transaksi_id " &
+            "WHERE " &
+            "    t.deleted_at IS NULL " &
+            "ORDER BY " &
+            "    t.tanggal_transaksi DESC;", conn)
+
+            dr = cmd.ExecuteReader
+
+            While dr.Read
+                Dim index As Integer = DGView1.Rows.Add()
+                DGView1.Rows(index).Cells("no_transaksi").Value = dr("no_izin")
+                DGView1.Rows(index).Cells("petugas_id").Value = dr("nama_petugas")
+                DGView1.Rows(index).Cells("pengguna_id").Value = dr("nama_pengguna")
+                DGView1.Rows(index).Cells("tanggal_transaksi").Value = dr("tanggal_transaksi")
+                DGView1.Rows(index).Cells("type_pembayaran").Value = dr("type_pembayaran")
+                DGView1.Rows(index).Cells("jumlah").Value = dr("jumlah")
+                DGView1.Rows(index).Cells("keterangan").Value = dr("keterangan")
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
             End While
 
             dr.Dispose()
@@ -138,13 +223,25 @@ Public Class TransaksiAdmin
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
+<<<<<<< HEAD
             isLoading = False
+=======
+            isLoading = False ' ✅ Selesai loading
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
             Database.CloseConnection(conn)
         End Try
     End Sub
 
+<<<<<<< HEAD
     Private Sub btnTambahTransaksi_Click(sender As Object, e As EventArgs) Handles btnTambahTransaksi.Click
         Dim ParentForm = CType(MdiParent, Form1)
         ParentForm.OpenChildForm(New AddTransaksi)
     End Sub
 End Class
+=======
+    Private Sub btnTambahIzin_Click(sender As Object, e As EventArgs) Handles btnTambahIzin.Click
+        Dim ParentForm = CType(MdiParent, Form1)
+        ParentForm.OpenChildForm(AddTransaksi)
+    End Sub
+End Class
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77

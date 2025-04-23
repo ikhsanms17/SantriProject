@@ -153,6 +153,7 @@ E:\Comission\SantriProject\SantriProject\obj\Debug\net8.0-windows7.0\SantriProje
 E:\Comission\SantriProject\SantriProject\obj\Debug\net8.0-windows7.0\SantriProject.AddPetugas.resources
 E:\Comission\SantriProject\SantriProject\obj\Debug\net8.0-windows7.0\SantriProject.UpdatePetugas.resources
 E:\Comission\SantriProject\SantriProject\bin\Debug\net8.0-windows7.0\itextsharp.dll
+<<<<<<< HEAD
 C:\Users\User\Documents\Haddad Hikmah M\pribadi\baru\SantriProject\bin\Debug\net8.0-windows7.0\SantriProject.exe
 C:\Users\User\Documents\Haddad Hikmah M\pribadi\baru\SantriProject\bin\Debug\net8.0-windows7.0\SantriProject.deps.json
 C:\Users\User\Documents\Haddad Hikmah M\pribadi\baru\SantriProject\bin\Debug\net8.0-windows7.0\SantriProject.runtimeconfig.json
@@ -235,3 +236,7 @@ C:\Users\User\Documents\Haddad Hikmah M\pribadi\baru\SantriProject\obj\Debug\net
 C:\Users\User\Documents\Haddad Hikmah M\pribadi\baru\SantriProject\obj\Debug\net8.0-windows7.0\ref\SantriProject.dll
 C:\Users\User\Documents\Haddad Hikmah M\pribadi\baru\SantriProject\obj\Debug\net8.0-windows7.0\SantriProject.AddTransaksi.resources
 C:\Users\User\Documents\Haddad Hikmah M\pribadi\baru\SantriProject\obj\Debug\net8.0-windows7.0\SantriProject.UpdateTransaksi.resources
+=======
+E:\Comission\SantriProject\SantriProject\obj\Debug\net8.0-windows7.0\SantriProject.AddTransaksi.resources
+E:\Comission\SantriProject\SantriProject\obj\Debug\net8.0-windows7.0\SantriProject.UpdateTransaksi.resources
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77

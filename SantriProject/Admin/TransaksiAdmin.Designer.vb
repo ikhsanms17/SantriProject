@@ -29,7 +29,11 @@ Partial Class TransaksiAdmin
         TableLayoutPanel3 = New TableLayoutPanel()
         DGView1 = New DataGridView()
         TableLayoutPanel4 = New TableLayoutPanel()
+<<<<<<< HEAD
         btnTambahTransaksi = New Button()
+=======
+        btnTambahIzin = New Button()
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         btnKembali = New Button()
         TableLayoutPanel1.SuspendLayout()
         TableLayoutPanel2.SuspendLayout()
@@ -41,34 +45,56 @@ Partial Class TransaksiAdmin
         ' TableLayoutPanel1
         ' 
         TableLayoutPanel1.ColumnCount = 3
+<<<<<<< HEAD
         TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 3.0F))
         TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 94.0F))
         TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 3.0F))
+=======
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 3F))
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 94F))
+        TableLayoutPanel1.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 3F))
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         TableLayoutPanel1.Controls.Add(TableLayoutPanel2, 1, 1)
         TableLayoutPanel1.Controls.Add(TableLayoutPanel3, 1, 2)
         TableLayoutPanel1.Dock = DockStyle.Fill
         TableLayoutPanel1.Location = New Point(0, 0)
         TableLayoutPanel1.Name = "TableLayoutPanel1"
         TableLayoutPanel1.RowCount = 4
+<<<<<<< HEAD
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 3.0F))
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 12.0F))
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 82.0F))
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 3.0F))
+=======
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 3F))
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 12F))
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 82F))
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 3F))
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         TableLayoutPanel1.Size = New Size(800, 450)
         TableLayoutPanel1.TabIndex = 2
         ' 
         ' TableLayoutPanel2
         ' 
         TableLayoutPanel2.ColumnCount = 2
+<<<<<<< HEAD
         TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 75.0F))
         TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25.0F))
+=======
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 75F))
+        TableLayoutPanel2.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 25F))
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         TableLayoutPanel2.Controls.Add(txtSearch, 1, 0)
         TableLayoutPanel2.Controls.Add(Label2, 0, 0)
         TableLayoutPanel2.Dock = DockStyle.Fill
         TableLayoutPanel2.Location = New Point(27, 16)
         TableLayoutPanel2.Name = "TableLayoutPanel2"
         TableLayoutPanel2.RowCount = 1
+<<<<<<< HEAD
         TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 100.0F))
+=======
+        TableLayoutPanel2.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         TableLayoutPanel2.Size = New Size(746, 48)
         TableLayoutPanel2.TabIndex = 1
         ' 
@@ -85,7 +111,11 @@ Partial Class TransaksiAdmin
         ' 
         Label2.AutoSize = True
         Label2.Dock = DockStyle.Fill
+<<<<<<< HEAD
         Label2.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+=======
+        Label2.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         Label2.Location = New Point(3, 0)
         Label2.Name = "Label2"
         Label2.Size = New Size(553, 48)
@@ -96,15 +126,24 @@ Partial Class TransaksiAdmin
         ' TableLayoutPanel3
         ' 
         TableLayoutPanel3.ColumnCount = 1
+<<<<<<< HEAD
         TableLayoutPanel3.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100.0F))
+=======
+        TableLayoutPanel3.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         TableLayoutPanel3.Controls.Add(DGView1, 0, 0)
         TableLayoutPanel3.Controls.Add(TableLayoutPanel4, 0, 1)
         TableLayoutPanel3.Dock = DockStyle.Fill
         TableLayoutPanel3.Location = New Point(27, 70)
         TableLayoutPanel3.Name = "TableLayoutPanel3"
         TableLayoutPanel3.RowCount = 2
+<<<<<<< HEAD
         TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 90.0F))
         TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 10.0F))
+=======
+        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 90F))
+        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 10F))
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         TableLayoutPanel3.Size = New Size(746, 363)
         TableLayoutPanel3.TabIndex = 10
         ' 
@@ -124,15 +163,23 @@ Partial Class TransaksiAdmin
         ' TableLayoutPanel4
         ' 
         TableLayoutPanel4.ColumnCount = 3
+<<<<<<< HEAD
         TableLayoutPanel4.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 15.0F))
         TableLayoutPanel4.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 70.0F))
         TableLayoutPanel4.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 15.0F))
         TableLayoutPanel4.Controls.Add(btnTambahTransaksi, 2, 0)
+=======
+        TableLayoutPanel4.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 15F))
+        TableLayoutPanel4.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 70F))
+        TableLayoutPanel4.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 15F))
+        TableLayoutPanel4.Controls.Add(btnTambahIzin, 2, 0)
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         TableLayoutPanel4.Controls.Add(btnKembali, 0, 0)
         TableLayoutPanel4.Dock = DockStyle.Fill
         TableLayoutPanel4.Location = New Point(3, 329)
         TableLayoutPanel4.Name = "TableLayoutPanel4"
         TableLayoutPanel4.RowCount = 1
+<<<<<<< HEAD
         TableLayoutPanel4.RowStyles.Add(New RowStyle(SizeType.Percent, 100.0F))
         TableLayoutPanel4.Size = New Size(740, 31)
         TableLayoutPanel4.TabIndex = 11
@@ -146,6 +193,21 @@ Partial Class TransaksiAdmin
         btnTambahTransaksi.TabIndex = 10
         btnTambahTransaksi.Text = "Tambah Transaksi"
         btnTambahTransaksi.UseVisualStyleBackColor = True
+=======
+        TableLayoutPanel4.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
+        TableLayoutPanel4.Size = New Size(740, 31)
+        TableLayoutPanel4.TabIndex = 11
+        ' 
+        ' btnTambahIzin
+        ' 
+        btnTambahIzin.Dock = DockStyle.Fill
+        btnTambahIzin.Location = New Point(632, 3)
+        btnTambahIzin.Name = "btnTambahIzin"
+        btnTambahIzin.Size = New Size(105, 25)
+        btnTambahIzin.TabIndex = 10
+        btnTambahIzin.Text = "Tambah"
+        btnTambahIzin.UseVisualStyleBackColor = True
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         ' 
         ' btnKembali
         ' 
@@ -160,7 +222,11 @@ Partial Class TransaksiAdmin
         ' 
         ' TransaksiAdmin
         ' 
+<<<<<<< HEAD
         AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+=======
+        AutoScaleDimensions = New SizeF(7F, 15F)
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.PapayaWhip
         ClientSize = New Size(800, 450)
@@ -184,6 +250,10 @@ Partial Class TransaksiAdmin
     Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
     Friend WithEvents DGView1 As DataGridView
     Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
+<<<<<<< HEAD
     Friend WithEvents btnTambahTransaksi As Button
+=======
+    Friend WithEvents btnTambahIzin As Button
+>>>>>>> e148778b981edc4cc5d9269ba53a545a54b55e77
     Friend WithEvents btnKembali As Button
 End Class
