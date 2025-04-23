@@ -157,47 +157,45 @@ Public Class KelasAdmin
             DGView1.Columns.Clear()
             DGView1.AutoGenerateColumns = False
 
-            DGView1.Columns.Add("id", "ID")
-            DGView1.Columns("id").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-
+            ' Change column headers
             DGView1.Columns.Add("nama", "Nama Kelas")
-            DGView1.Columns("nama").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+            DGView1.Columns("nama").AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
 
             DGView1.Columns.Add("deskripsi", "Deskripsi")
-            DGView1.Columns("deskripsi").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells ' Contoh: email panjang, jadi pakai Fill
+            DGView1.Columns("deskripsi").AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill ' Using Fill for better control over width
 
-            ' Tambah tombol Edit
+            ' Add Edit button column
             Dim btnEdit As New DataGridViewButtonColumn()
             btnEdit.Name = "btnEdit"
-            btnEdit.HeaderText = ""
+            btnEdit.HeaderText = "Edit"
             btnEdit.Text = "Edit"
             btnEdit.UseColumnTextForButtonValue = True
             DGView1.Columns.Add(btnEdit)
 
-            ' Tambah tombol Delete
+            ' Add Delete button column
             Dim btnDelete As New DataGridViewButtonColumn()
             btnDelete.Name = "btnHapus"
-            btnDelete.HeaderText = ""
-            btnDelete.Text = "Delete"
+            btnDelete.HeaderText = "Hapus"
+            btnDelete.Text = "Hapus"
             btnDelete.UseColumnTextForButtonValue = True
             DGView1.Columns.Add(btnDelete)
 
+            ' Set font styles
             DGView1.DefaultCellStyle.Font = New Font("Segoe UI", 10)
             DGView1.ColumnHeadersDefaultCellStyle.Font = New Font("Segoe UI", 11, FontStyle.Bold)
 
             DGView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
             DGView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
 
+            ' Fetch data from the database
             Dim cmd As New MySqlCommand("SELECT * FROM kelas WHERE deleted_at IS NULL", conn)
-
             dr = cmd.ExecuteReader
             While dr.Read
                 DGView1.Rows.Add(
-                dr.Item("id"),
-                dr.Item("nama"),
-                dr.Item("deskripsi"),
-                Nothing, Nothing
-            )
+            dr.Item("nama"),
+            dr.Item("deskripsi"),
+            Nothing, Nothing
+        )
             End While
             dr.Dispose()
 
@@ -207,6 +205,7 @@ Public Class KelasAdmin
             Database.CloseConnection(conn)
         End Try
     End Sub
+
 
     Private Sub DeleteKelas(id As Integer)
         Try

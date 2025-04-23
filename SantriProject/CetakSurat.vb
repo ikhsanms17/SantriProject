@@ -6,7 +6,7 @@ Imports iTextSharp.text.pdf
 Imports System.Diagnostics
 
 Module CetakSurat
-    Public Sub CetakSuratPDF(noIzin As String)
+    Public Sub CetakSuratIzinPDF(noIzin As String)
         Try
             If conn.State = ConnectionState.Closed Then
                 conn.Open()
@@ -209,6 +209,63 @@ Module CetakSurat
             Database.CloseConnection(conn)
         End Try
     End Sub
+    Public Sub CetakSuratTransaksiPDF(noTransaksi As String, Optional isIzin As Boolean = False)
+        Try
+            If conn.State = ConnectionState.Closed Then
+                conn.Open()
+            End If
+
+            Dim query As String = "
+        SELECT 
+            t.id AS transaksi_id,
+            t.no_transaksi,
+            u1.nama AS nama_pengguna,
+            u2.nama AS nama_petugas,
+            t.tanggal_transaksi,
+            t.type_pembayaran,
+            dt.id AS detail_transaksi_id,
+            dt.jumlah,
+            dt.type AS detail_type,
+            dt.image_bukti,
+            dt.keterangan AS detail_keterangan,
+            dt.created_at AS detail_created_at,
+            dt.updated_at AS detail_updated_at
+        FROM 
+            transaksi t
+        JOIN 
+            users u1 ON t.pengguna_id = u1.id  
+        JOIN 
+            users u2 ON t.petugas_id = u2.id  
+        JOIN 
+            detail_transaksi dt ON t.id = dt.transaksi_id  
+        WHERE 
+            t.deleted_at IS NULL"
+
+            ' Menambahkan kondisi WHERE berdasarkan no_transaksi
+            If Not String.IsNullOrEmpty(noTransaksi) Then
+                query &= " AND t.no_transaksi = @noTransaksi"
+            End If
+
+            ' Eksekusi query berdasarkan kondisi
+            Dim cmd As New MySqlCommand(query, conn)
+            cmd.Parameters.AddWithValue("@noTransaksi", noTransaksi)
+
+            Dim dr As MySqlDataReader = cmd.ExecuteReader()
+
+            If dr.Read() Then
+                ' Ambil data dan lanjutkan seperti biasa...
+            Else
+                MessageBox.Show("Data tidak ditemukan untuk no transaksi: " & noTransaksi, "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+
+            dr.Close()
+        Catch ex As Exception
+            MessageBox.Show("Gagal membuat surat: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            Database.CloseConnection(conn)
+        End Try
+    End Sub
+
 
     Private Function CreateTtdCell(text As String, font As Font, Optional height As Integer = 20) As PdfPCell
         Dim cell As New PdfPCell(New Phrase(text, font))

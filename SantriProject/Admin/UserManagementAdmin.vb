@@ -22,25 +22,25 @@ Public Class UserManagementAdmin
             DGView1.AutoGenerateColumns = False
 
             DGView1.Columns.Add("nama", "Nama")
-            DGView1.Columns("nama").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+            DGView1.Columns("nama").AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
 
             DGView1.Columns.Add("nama_pengguna", "Nama Pengguna")
-            DGView1.Columns("nama_pengguna").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+            DGView1.Columns("nama_pengguna").AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
 
             DGView1.Columns.Add("email", "Email")
-            DGView1.Columns("email").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells ' Contoh: email panjang, jadi pakai Fill
+            DGView1.Columns("email").AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill ' Contoh: email panjang, jadi pakai Fill
 
             DGView1.Columns.Add("nis", "NIS")
-            DGView1.Columns("nis").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+            DGView1.Columns("nis").AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
 
             DGView1.Columns.Add("kelas_id", "Kelas")
-            DGView1.Columns("kelas_id").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+            DGView1.Columns("kelas_id").AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
 
             DGView1.Columns.Add("jenis_kelamin", "Jenis Kelamin")
-            DGView1.Columns("jenis_kelamin").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+            DGView1.Columns("jenis_kelamin").AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
 
             DGView1.Columns.Add("tanggal_lahir", "Tanggal Lahir")
-            DGView1.Columns("tanggal_lahir").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+            DGView1.Columns("tanggal_lahir").AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
 
             DGView1.Columns.Add("nama_ayah", "Ayah")
             DGView1.Columns("nama_ayah").AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
@@ -56,7 +56,7 @@ Public Class UserManagementAdmin
             ' Tambah tombol Edit
             Dim btnEditUser As New DataGridViewButtonColumn()
             btnEditUser.Name = "btnEditUser"
-            btnEditUser.HeaderText = ""
+            btnEditUser.HeaderText = "Edit"
             btnEditUser.Text = "Edit"
             btnEditUser.UseColumnTextForButtonValue = True
             DGView1.Columns.Add(btnEditUser)
@@ -64,8 +64,8 @@ Public Class UserManagementAdmin
             ' Tambah tombol Delete
             Dim btnDeleteUser As New DataGridViewButtonColumn()
             btnDeleteUser.Name = "btnHapusUser"
-            btnDeleteUser.HeaderText = ""
-            btnDeleteUser.Text = "Delete"
+            btnDeleteUser.HeaderText = "Hapus"
+            btnDeleteUser.Text = "hapus"
             btnDeleteUser.UseColumnTextForButtonValue = True
             DGView1.Columns.Add(btnDeleteUser)
 

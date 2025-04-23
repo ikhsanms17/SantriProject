@@ -2,7 +2,7 @@
 Imports MySql.Data.MySqlClient
 
 Public Module Database
-    Public connectionString As String = "server=localhost;database=vb_santri;user=root;password=root"
+    Public connectionString As String = "server=localhost;database=vb_santri;user=root;password="
     Public conn As MySqlConnection = Database.GetConnection()
     Public i As Integer
     Public dr As MySqlDataReader

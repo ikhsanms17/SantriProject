@@ -34,6 +34,12 @@
     <Compile Update="Admin\TransaksiAdmin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Admin\Transaksi\AddTransaksi.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Admin\Transaksi\UpdateTransaksi.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Admin\UserManagementAdmin.vb">
       <SubType>Form</SubType>
     </Compile>

@@ -20,14 +20,15 @@ Public Class Petugas
             DGView1.Columns.Clear()
             DGView1.AutoGenerateColumns = False
 
+            ' Add columns for the DataGridView
             DGView1.Columns.Add("nama", "Nama")
-            DGView1.Columns("nama").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+            DGView1.Columns("nama").AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
 
             DGView1.Columns.Add("nama_pengguna", "Nama Pengguna")
             DGView1.Columns("nama_pengguna").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
 
             DGView1.Columns.Add("email", "Email")
-            DGView1.Columns("email").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+            DGView1.Columns("email").AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
 
             DGView1.Columns.Add("jenis_kelamin", "Jenis Kelamin")
             DGView1.Columns("jenis_kelamin").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
@@ -41,22 +42,24 @@ Public Class Petugas
             DGView1.Columns.Add("role", "Role")
             DGView1.Columns("role").AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
 
-            ' Tambah tombol Edit
+            ' Add buttons columns for Edit and Delete
             Dim btnEditUser As New DataGridViewButtonColumn()
             btnEditUser.Name = "btnEdit"
-            btnEditUser.HeaderText = ""
+            btnEditUser.HeaderText = "Edit"
             btnEditUser.Text = "Edit"
             btnEditUser.UseColumnTextForButtonValue = True
-            DGView1.Columns.Add(btnEdit)
+            btnEditUser.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells ' Ensure the button size fits
+            DGView1.Columns.Add(btnEditUser)
 
-            ' Tambah tombol Delete
             Dim btnDeleteUser As New DataGridViewButtonColumn()
             btnDeleteUser.Name = "btnHapus"
-            btnDeleteUser.HeaderText = ""
-            btnDeleteUser.Text = "Delete"
+            btnDeleteUser.HeaderText = "Hapus"
+            btnDeleteUser.Text = "Hapus"
             btnDeleteUser.UseColumnTextForButtonValue = True
-            DGView1.Columns.Add(btnHapus)
+            btnDeleteUser.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells ' Ensure the button size fits
+            DGView1.Columns.Add(btnDeleteUser)
 
+            ' Formatting DataGridView
             DGView1.DefaultCellStyle.Font = New Font("Segoe UI", 10)
             DGView1.ColumnHeadersDefaultCellStyle.Font = New Font("Segoe UI", 11, FontStyle.Bold)
 
